@@ -25,9 +25,7 @@
                                                   }">
                                     <tr>
                                         <td data-bind="text: anio"></td>
-                                        <td width="30%">
-                                        	<a class="btn btn-success btn-xs" data-toggle="tooltip" title="configurar pagos anuales"><i class="fa fa-money"></i> editar cuotas</a>
-
+                                        <td width="10%">
                                             <a href="#" class="btn btn-warning btn-xs" data-bind="click: model.anioController.editar" data-toggle="tooltip" title="editar"><i class="fa fa-pencil-square-o"></i></a>
 
                                             <a href="#" class="btn btn-danger btn-xs" data-bind="click: model.anioController.destroy" data-toggle="tooltip" title="eliminar"><i class="fa fa-trash-o"></i></a>
