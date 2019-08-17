@@ -28,9 +28,9 @@
                                         <td data-bind="text: nombre"></td>
                                         <td><span class="label" data-bind="text: (forma_pago === 'M' ? 'Mensual' : 'Anual'), css: (forma_pago === 'M' ? 'label-info' : 'label-success')"></span></td>
                                         <td width="10%">
-                                            <a href="#" class="btn btn-warning btn-xs" data-bind="click: model.anioController.editar" data-toggle="tooltip" title="editar"><i class="fa fa-pencil-square-o"></i></a>
+                                            <a href="#" class="btn btn-warning btn-xs" data-bind="click: model.conceptoPagoController.editar" data-toggle="tooltip" title="editar"><i class="fa fa-pencil-square-o"></i></a>
 
-                                            <a href="#" class="btn btn-danger btn-xs" data-bind="click: model.anioController.destroy" data-toggle="tooltip" title="eliminar"><i class="fa fa-trash-o"></i></a>
+                                            <a href="#" class="btn btn-danger btn-xs" data-bind="click: model.conceptoPagoController.destroy" data-toggle="tooltip" title="eliminar"><i class="fa fa-trash-o"></i></a>
                                         </td>
                                     </tr>
 

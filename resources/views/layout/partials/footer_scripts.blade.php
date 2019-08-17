@@ -15,6 +15,7 @@
 <!-- Metis demo scripts -->
 <script src="{{ asset('js/app.js') }}"></script>
 
+
 <!-- DATATABLES -->
 <script type="text/javascript" src="{{ asset('js/dataTables.min.js') }}"></script>
 

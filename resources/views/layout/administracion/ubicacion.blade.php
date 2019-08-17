@@ -26,9 +26,9 @@
                                     <tr>
                                         <td data-bind="text: nombre"></td>
                                         <td width="10%">
-                                            <a href="#" class="btn btn-warning btn-xs" data-bind="click: model.anioController.editar" data-toggle="tooltip" title="editar"><i class="fa fa-pencil-square-o"></i></a>
+                                            <a href="#" class="btn btn-warning btn-xs" data-bind="click: model.ubicacionController.editar" data-toggle="tooltip" title="editar"><i class="fa fa-pencil-square-o"></i></a>
 
-                                            <a href="#" class="btn btn-danger btn-xs" data-bind="click: model.anioController.destroy" data-toggle="tooltip" title="eliminar"><i class="fa fa-trash-o"></i></a>
+                                            <a href="#" class="btn btn-danger btn-xs" data-bind="click: model.ubicacionController.destroy" data-toggle="tooltip" title="eliminar"><i class="fa fa-trash-o"></i></a>
                                         </td>
                                     </tr>
 
