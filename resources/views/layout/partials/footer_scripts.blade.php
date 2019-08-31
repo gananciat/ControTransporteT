@@ -41,6 +41,7 @@
 <script src="{{asset('scripts/js/ubicacion.js')}}"></script>
 <script src="{{asset('scripts/js/destino.js')}}"></script>
 <script src="{{asset('scripts/js/conceptoPago.js')}}"></script>
+<script src="{{asset('scripts/js/persona.js')}}"></script>
 
 <!-- scripts  services-->
 <script src="{{asset('scripts/services/TipoPersonaService.js')}}"></script>
@@ -50,6 +51,7 @@
 <script src="{{asset('scripts/services/DestinoService.js')}}"></script>
 <script src="{{asset('scripts/services/ConceptoPagoService.js')}}"></script>
 <script src="{{asset('scripts/services/AnioService.js')}}"></script>
+<script src="{{asset('scripts/services/PersonaService.js')}}"></script>
 
 <script>
 	$(document).ready(function () {

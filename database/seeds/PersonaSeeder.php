@@ -8,7 +8,7 @@ class PersonaSeeder extends Seeder
     public function run()
     {
         $data = new Persona();
-        $data->codigo = '123456789';
+        $data->cui = '123456789';
         $data->nombre_uno = 'Kemberly';
         $data->nombre_dos = '';
         $data->apellido_uno = 'Esquite';

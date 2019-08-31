@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Persona;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -21,4 +22,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function persona()
+    {
+        return $this->belongsTo(Persona::class);
+    }
+
+    public function tipo_usuario(){
+        return $this->belongsTo(TipoUsuario::class);
+    }
+
 }

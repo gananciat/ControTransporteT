@@ -18,6 +18,7 @@ trait ApiResponser
 
 	protected function showAll(Collection $collection, $code = 200)
 	{
+		$collection = $this->filterData($collection);
 		return $this->successResponse($collection, $code);
 	}
 
@@ -36,14 +37,19 @@ trait ApiResponser
 		return $this->successResponse(['data' =>$query], 200);
 	}
 
-	protected function filterData(Collection $collection, $transformer)
+	protected function filterData(Collection $collection)
 	{
 		foreach (request()->query() as $query => $value) {
-			$attribute = $transformer::originalAttribute($query);
-			if (isset($attribute, $value)) {
-				$collection = $collection->where($attribute, $value)->values();
+			if (isset($value)) {
+				if($value === 'true' || $value==='false')
+				{
+					$value === 'true'? $value=true: $value=false;
+				}
+
+				$collection = $collection->where($query, $value)->values();
 			}
 		}
+		//Log::notice('Información: '.$collection);
 		return $collection;
 	}
 

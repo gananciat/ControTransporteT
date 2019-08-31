@@ -7,16 +7,13 @@
         <div class="user-wrapper bg-dark">
             <a class="user-link" href="">
                 <img class="media-object img-thumbnail user-img" alt="User Picture" src="{{ asset('img/user.gif') }}">
-                <span class="label label-danger user-label">16</span>
+                <span class="label label-danger user-label"></span>
             </a>
     
             <div class="media-body">
-                <h5 class="media-heading">Usuario</h5>
+                <h5 class="media-heading">{{Auth::user()->persona->nombre_uno}} {{Auth::user()->persona->apellido_uno}}</h5>
                 <ul class="list-unstyled user-info">
-                    <li><a href="">Administrador</a></li>
-                    <li>Ultimo Acceso : <br>
-                        <small><i class="fa fa-calendar"></i>&nbsp;16 Mar 16:32</small>
-                    </li>
+                    <li><h5 href="">Usuario: {{Auth::user()->tipo_usuario->nombre}}</h5></li>
                 </ul>
             </div>
         </div>
@@ -27,7 +24,7 @@
               <li class="nav-divider"></li>
               <li class="">
                 <a href="dashboard.html">
-                  <i class="fa fa-dashboard"></i><span class="link-title">&nbsp;Dashboard</span>
+                  <i class="fa fa-dashboard"></i><span class="link-title">&nbsp;Escritorio</span>
                 </a>
               </li>
               <li class="">
@@ -44,8 +41,8 @@
                 </ul>
                 <ul class="collapse">
                   <li>
-                    <a href="{{ route('cargosView') }}">
-                      <i class="fa fa-angle-right"></i>&nbsp; Cargos</a>
+                    <a href="{{ route('personasView') }}">
+                      <i class="fa fa-angle-right"></i>&nbsp; Personas</a>
                   </li>
                 </ul>
                 <ul class="collapse">

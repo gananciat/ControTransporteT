@@ -15,13 +15,15 @@ class CreatePersonasTable extends Migration
     {
         Schema::create('personas', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('codigo',25);
+            $table->string('cui',25);
+            $table->string('foto',80)->nullable();
             $table->string('nombre_uno',25);
             $table->string('nombre_dos',25)->nullable();
             $table->string('apellido_uno',25);
             $table->string('apellido_dos',25)->nullable();
             $table->string('email')->nullable();
             $table->date('fecha_nac')->nullable();
+            $table->string('direccion',400)->nullable();
             $table->unsignedBigInteger('tipo_persona_id');
             $table->softDeletes();
             $table->timestamps();

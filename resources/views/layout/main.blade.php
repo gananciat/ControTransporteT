@@ -2,7 +2,7 @@
 <html lang="en">
  <head>
    @include('layout.partials.head')
-   @include('layout.partials.footer_scripts')
+   <script src="{{ asset('lib/jquery/jquery.js') }}"></script>
  </head>
 
  <body>
@@ -10,6 +10,9 @@
  		@include('layout.partials.header')
  		@include('layout.partials.sidebar')
  		@yield('content')
+
+ 		<!--include scripts -->
+        @include('layout.partials.footer_scripts') 
  	</div>
  	@include('layout.partials.footer')
  	@yield('js')

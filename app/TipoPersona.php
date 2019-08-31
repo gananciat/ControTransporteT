@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Persona;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -13,4 +14,9 @@ class TipoPersona extends Model
     protected $fillable= [
     	'nombre'
     ];
+
+    public function personas()
+    {
+    	return $this->hasMany(Persona::class);
+    }
 }

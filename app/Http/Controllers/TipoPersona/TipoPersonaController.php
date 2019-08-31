@@ -21,7 +21,7 @@ class TipoPersonaController extends ApiController
 
     public function index()
     {
-        $tipo_personas = TipoPersona::all();
+        $tipo_personas = TipoPersona::with('personas')->get();
         return $this->showAll($tipo_personas);
     }
 

@@ -39,3 +39,6 @@ Route::get('cargosView', 'Cargo\CargoController@view')->name('cargosView');
 Route::resource('cargos', 'Cargo\CargoController', ['except' => ['create', 'edit']]);
 
 Route::resource('mess', 'Mes\MesController', ['except' => ['create', 'edit']]);
+
+Route::get('personasView', 'Persona\PersonaController@view')->name('personasView');
+Route::resource('personas', 'Persona\PersonaController', ['except' => ['create', 'edit']]);
