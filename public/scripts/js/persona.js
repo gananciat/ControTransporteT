@@ -16,9 +16,11 @@ model.personaController = {
         telefonos: ko.observableArray([]),
         image_file: ko.observable(""),
         tipo_persona_id: ko.observable(null),
+        marca_transporte_id: ko.observable(null)
     },
 
     personas: ko.observableArray([]),
+    isPropietario: ko.observable(false),
     tipo_personas: ko.observableArray([]),
     insertMode: ko.observable(false),
     editMode: ko.observable(false),
@@ -242,7 +244,9 @@ model.personaController = {
         self.selectTipo(true);
         self.persona.tipo_persona_id(tipo.id);
         self.persona_name(tipo.nombre);
-        self.getAll(tipo.id);  
+        self.getAll(tipo.id); 
+
+        tipo.nombre.substring(0,11).toLowerCase() === 'propietario' ? self.isPropietario(true):self.isPropietario(false);
     },
 
     getAll: function(tipo_id){
@@ -253,6 +257,12 @@ model.personaController = {
             self.personas(r.data);
         })
         .catch(r => {});
+    },
+
+    initializeExpediente: function(propietario){
+        let self = model.personaController;
+        model.expedienteController.initialize(propietario.id);
+        self.map(propietario);
     },
 
 //archivo que se ejecuta al inicio cuando se carga la vista, lista todos los registros

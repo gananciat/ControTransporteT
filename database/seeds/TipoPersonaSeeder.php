@@ -13,7 +13,19 @@ class TipoPersonaSeeder extends Seeder
     public function run()
     {
         $data = new TipoPersona();
-        $data->nombre = 'Empleado';
+        $data->nombre = 'Secretaria';
+        $data->save();
+
+        $data = new TipoPersona();
+        $data->nombre = 'Propietarios';
+        $data->save();
+
+        $data = new TipoPersona();
+        $data->nombre = 'Pilotos';
+        $data->save();
+
+        $data = new TipoPersona();
+        $data->nombre = 'Agentes';
         $data->save();
     }
 }

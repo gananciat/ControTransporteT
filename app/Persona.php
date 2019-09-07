@@ -2,6 +2,8 @@
 
 namespace App;
 
+use App\Expediente;
+use App\TipoPersona;
 use App\TelefonoPersona;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -27,5 +29,15 @@ class Persona extends Model
     public function telefonos()
     {
         return $this->hasMany(TelefonoPersona::class);
+    }
+
+    public function expedientes()
+    {
+        return $this->hasMany(Expediente::class,'propietario_id');
+    }
+
+    public function tipo_persona()
+    {
+        return $this->belongsTo(TipoPersona::class);
     }
 }

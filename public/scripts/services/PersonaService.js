@@ -11,6 +11,11 @@ personaService = {
         return axios.get(`personas/${id}`);
     },
 
+    getExpedientes(id) {
+        let self = this;
+        return axios.get(`personas/${id}/expedientes`);
+    },
+
     create(data) {
         return axios.post(`personas`, data);
     },

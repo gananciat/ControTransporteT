@@ -26,8 +26,8 @@
                                     <tr>
                                         <td data-bind="text: anio"></td>
                                         <td width="10%">
-                                            <a href="#" class="btn btn-warning btn-xs" data-bind="click: model.anioController.editar" data-toggle="tooltip" title="editar"><i class="fa fa-pencil-square-o"></i></a>
-
+                                            <!-- <a href="#" class="btn btn-warning btn-xs" data-bind="click: model.anioController.editar" data-toggle="tooltip" title="editar"><i class="fa fa-pencil-square-o"></i></a>-->
+                                            <a href="#" class="btn btn-info btn-xs" data-bind="click: model.anioController.viewInfo" data-toggle="tooltip" title="información"><i class="fa fa-eye"></i></a>
                                             <a href="#" class="btn btn-danger btn-xs" data-bind="click: model.anioController.destroy" data-toggle="tooltip" title="eliminar"><i class="fa fa-trash-o"></i></a>
                                         </td>
                                     </tr>
@@ -74,7 +74,7 @@
 					                    </tr>
 					                    </thead>
 					                    <tbody>
-					                    <!-- ko foreach: {data: model.anioController.anio.cuotas, as: 'concepto'} -->
+					                    <!-- ko foreach: {data: model.anioController.cuotas, as: 'concepto'} -->
 		                                    <tr>
 		                                        <td data-bind="text: concepto.nombre"></td>
 		                                        <td><span class="label" data-bind="text: (concepto.forma_pago === 'M' ? 'Mensual' : 'Anual'), css: (concepto.forma_pago === 'M' ? 'label-info' : 'label-success')"></span>
@@ -103,6 +103,35 @@
 				    </div>
 				</div>
 			</div>
+			<div class="row" data-bind="visible: model.anioController.viewMode()">
+				<div class="col-lg-12"><br />
+
+						<div class="pull-right">
+	        				<button data-bind="click: model.anioController.cancelar" class="btn btn-danger btn-sm"> <i class="fa fa-undo"></i> volver</button>
+						</div>
+					<h2>Detalle de cuotas y pagos del año <span data-bind="text: model.anioController.anio.anio"></span>
+					</h2>
+					<ul class="pricing-table dark" contenteditable="" id="light">
+						<!-- ko foreach: {data: model.anioController.anio.cuotas(), as: 'cuota'} -->
+						<li class="active success col-lg-3 " style="height: 300px;">
+							<h3><span data-bind="text: concepto_pago.nombre"></span></h3>
+							<div class="price-body">
+								<div class="price" style="font-size: 17px;">
+								  <span data-bind="text: formatCurrency(parseFloat(cuota).toFixed(2))"></span>
+								</div>
+							</div>
+							<div class="features">
+								<ul>
+									<li data-bind="if: concepto_pago.forma_pago === 'A'"> PAGO ANUAL </li>
+									<li data-bind="if: concepto_pago.forma_pago === 'M'"> PAGO ANUAL</li>
+								</ul>
+							</div>
+					    </li>
+					    <!-- /ko -->
+					<div class="clearfix"></div>
+					</ul>
+				</div>
+			</div>
 		</div>
 	</div>
 
@@ -113,7 +142,7 @@
 	    <div class="modal-content">
 	      <div class="modal-header">
 	        <button type="button" class="close" data-dismiss="modal">&times;</button>
-	        <h4 class="modal-title"> Año y Cuotas Ingresadas</h4>
+	        <h4 class="modal-title"> Año y Cuotas Ingresadas</h4> 
 	      </div>
 	      <div class="modal-body">
 	        <p class="text-info">por favor verifique los pagos</p>
@@ -125,7 +154,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <!-- ko foreach: {data: model.anioController.anio.cuotas, as: 'concepto'} -->
+                <!-- ko foreach: {data: model.anioController.cuotas, as: 'concepto'} -->
                     <tr>
                         <td class="text-info" data-bind="text: concepto.nombre"></td>
                         <td class="text-info" data-bind="text: concepto.cuota"></td>

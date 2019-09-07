@@ -42,3 +42,18 @@ Route::resource('mess', 'Mes\MesController', ['except' => ['create', 'edit']]);
 
 Route::get('personasView', 'Persona\PersonaController@view')->name('personasView');
 Route::resource('personas', 'Persona\PersonaController', ['except' => ['create', 'edit']]);
+Route::resource('personas.expedientes', 'Persona\PersonaExpedienteController', ['except' => ['create', 'edit']]);
+
+Route::resource('expedientes', 'Expediente\ExpedienteController', ['except' => ['create', 'edit']]);
+
+Route::get('rutasView', 'Ruta\RutaController@view')->name('rutasView');
+Route::resource('rutas', 'Ruta\RutaController', ['except' => ['create', 'edit']]);
+
+Route::get('tipoTransportesView', 'TipoTransporte\TipoTransporteController@view')->name('tipoTransportesView');
+Route::resource('tipoTransportes', 'TipoTransporte\TipoTransporteController', ['except' => ['create', 'edit']]);
+
+Route::get('marcaTransportesView', 'MarcaTransporte\MarcaTransporteController@view')->name('marcaTransportesView');
+Route::resource('marcaTransportes', 'MarcaTransporte\MarcaTransporteController', ['except' => ['create', 'edit']]);
+
+Route::get('lineasView', 'Linea\LineaController@view')->name('lineasView');
+Route::resource('lineas', 'Linea\LineaController', ['except' => ['create', 'edit']]);

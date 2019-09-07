@@ -31,6 +31,7 @@
 <script src="{{asset('js/moment.min.js')}}"></script>
 <script src="{{asset('js/jquery.steps.min.js')}}"></script>
 <script src="{{asset('js/axios.min.js')}}"></script>
+<script src="{{asset('js/bootstrap-select.min.js')}}"></script>
 
 <!-- scripts  -->
 <script src="{{asset('scripts/js/model.js')}}"></script>
@@ -42,6 +43,11 @@
 <script src="{{asset('scripts/js/destino.js')}}"></script>
 <script src="{{asset('scripts/js/conceptoPago.js')}}"></script>
 <script src="{{asset('scripts/js/persona.js')}}"></script>
+<script src="{{asset('scripts/js/expediente.js')}}"></script>
+<script src="{{asset('scripts/js/ruta.js')}}"></script>
+<script src="{{asset('scripts/js/tipoTransporte.js')}}"></script>
+<script src="{{asset('scripts/js/marcaTransporte.js')}}"></script>
+<script src="{{asset('scripts/js/linea.js')}}"></script>
 
 <!-- scripts  services-->
 <script src="{{asset('scripts/services/TipoPersonaService.js')}}"></script>
@@ -52,6 +58,11 @@
 <script src="{{asset('scripts/services/ConceptoPagoService.js')}}"></script>
 <script src="{{asset('scripts/services/AnioService.js')}}"></script>
 <script src="{{asset('scripts/services/PersonaService.js')}}"></script>
+<script src="{{asset('scripts/services/ExpedienteService.js')}}"></script>
+<script src="{{asset('scripts/services/RutaService.js')}}"></script>
+<script src="{{asset('scripts/services/TipoTransporteService.js')}}"></script>
+<script src="{{asset('scripts/services/MarcaTransporteService.js')}}"></script>
+<script src="{{asset('scripts/services/LineaService.js')}}"></script>
 
 <script>
 	$(document).ready(function () {

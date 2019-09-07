@@ -6,7 +6,11 @@
         </div>
         <div class="user-wrapper bg-dark">
             <a class="user-link" href="">
+              @if(isset(Auth::user()->persona->foto))
+                    <img src="{{URL::asset('img/'.Auth::user()->persona->foto)}}" class="media-object img-thumbnail user-img" alt="User Image" style="height: 70px; width: 60px;">
+              @else
                 <img class="media-object img-thumbnail user-img" alt="User Picture" src="{{ asset('img/user.gif') }}">
+              @endif
                 <span class="label label-danger user-label"></span>
             </a>
     
@@ -85,14 +89,32 @@
                 </a>
                 <ul class="collapse">
                   <li>
-                    <a href="#">
-                      <i class="fa fa-angle-right"></i>&nbsp; Tipo Documentos</a>
+                    <a href="{{ route('marcaTransportesView') }}">
+                      <i class="fa fa-angle-right"></i>&nbsp; Marca transportes</a>
+                  </li>
+                </ul>
+                <ul class="collapse">
+                  <li>
+                    <a href="{{ route('tipoTransportesView') }}">
+                      <i class="fa fa-angle-right"></i>&nbsp; Tipo transportes</a>
+                  </li>
+                </ul>
+                <ul class="collapse">
+                  <li>
+                    <a href="{{ route('rutasView') }}">
+                      <i class="fa fa-angle-right"></i>&nbsp; Rutas</a>
+                  </li>
+                </ul>
+                <ul class="collapse">
+                  <li>
+                    <a href="{{ route('lineasView') }}">
+                      <i class="fa fa-angle-right"></i>&nbsp; Lineas</a>
                   </li>
                 </ul>
                 <ul class="collapse">
                   <li>
                     <a href="#">
-                      <i class="fa fa-angle-right"></i>&nbsp; Personas</a>
+                      <i class="fa fa-angle-right"></i>&nbsp; Tipo Documentos</a>
                   </li>
                 </ul>
                 <ul class="collapse">

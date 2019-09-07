@@ -5,7 +5,7 @@ cargoService = {
 
     get(id) {
         let self = this;
-        return self.axios.get(`cargos/${id}`);
+        return axios.get(`cargos/${id}`);
     },
 
     create(data) {

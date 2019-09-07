@@ -17,5 +17,16 @@ class PersonaSeeder extends Seeder
         $data->fecha_nac = '1994-06-15';
         $data->tipo_persona_id = 1;
         $data->save();
+
+        $data = new Persona();
+        $data->cui = '123456789';
+        $data->nombre_uno = 'Juan';
+        $data->nombre_dos = 'Estuardo';
+        $data->apellido_uno = 'Esquite';
+        $data->apellido_dos = 'Revolorio';
+        $data->email = 'juan@gmail.com';
+        $data->fecha_nac = '1990-06-15';
+        $data->tipo_persona_id = 2;
+        $data->save();
     }
 }

@@ -23,7 +23,7 @@ class CreatePropietarioLineasTable extends Migration
 
             $table->foreign('propietario_id')->references('id')->on('personas');
 
-            $table->foreign('linea_id')->references('id')->on('tipo_usuarios');
+            $table->foreign('linea_id')->references('id')->on('lineas');
         });
     }
 

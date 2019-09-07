@@ -10,7 +10,7 @@
 				 		<div class="text-center">
 				 			<!-- ko foreach: {data: model.personaController.tipo_personas, as: 'tipo'} -->
 							<a class="quick-btn" href="#" data-bind="click: model.personaController.selectTipoPersona">
-								<i class="fa fa-user-md fa-2x"></i>
+								<i class="glyphicon glyphicon-user"></i>
 								<span data-bind="text: tipo.nombre">></span>
 								<span class="label label-success" data-bind="text: tipo.personas.length"></span>
 							</a>
@@ -40,7 +40,11 @@
                                     	<td><img class="bgimage img-responsive" style=" height:90px;" data-bind="attr:{src: (foto !== null && foto !== '' ? '/img/'+foto : emptyLogo)}" /></td>
                                     	<td data-bind="text: cui"></td>
                                         <td data-bind="text: nombre_uno+' '+apellido_uno"></td>
-                                        <td width="10%">
+                                        <td width="25%">
+                                        	<span data-bind="visible: model.personaController.isPropietario()" data-original-title="adjuntar expediente anual" data-toggle="tooltip">
+                                        		<a href="#" class="btn btn-success btn-xs"  data-bind="click: model.personaController.initializeExpediente" data-toggle="modal" data-target="#expediente"><i class="fa fa-file"></i> expediente</a>
+                                        	</span>
+
                                             <a href="#" class="btn btn-warning btn-xs" data-bind="click: model.personaController.editar" data-toggle="tooltip" title="editar"><i class="fa fa-pencil-square-o"></i></a>
 
                                             <a href="#" class="btn btn-danger btn-xs" data-bind="click: model.personaController.destroy" data-toggle="tooltip" title="eliminar"><i class="fa fa-trash-o"></i></a>
@@ -169,8 +173,80 @@
 				</div>
 			</div>
 		</div>
+
+
+<div class="modal fade" id="expediente" data-backdrop="static">
+  <div class="modal-dialog modal-lg" style="color: black">
+    <div class="modal-content">
+      <div class="modal-header">
+        EXPEDIENTES <span data-bind="text: model.personaController.persona.nombre_uno().toUpperCase()+' '+model.personaController.persona.apellido_uno().toUpperCase()"></span> <a class="btn-xs pull-right"><i class="fa fa-close" data-dismiss="modal"></i></a>
+      </div>
+      <div class="modal-body">
+        <div class="panel-body table-responsive" id="listadoExpedientes">
+        	<div>
+        		<form id="form_exp" class="form-horizontal" data-bind="with: model.expedienteController.expediente">
+        			<div class="col-lg-12">
+        				
+        			<div class="form-group row">
+						<div class="col-lg-4">
+						<label>Año</label>
+						 <select class="form-control" id="rol" data-bind="options: model.expedienteController.anios, optionsText: 'anio', optionsValue: 'id',
+	                       optionsCaption: '--seleccione--',
+	                       value: anio_id" 
+	                       data-error=".errorAnio"
+		                    required></select>
+		                <span class="errorAnio text-danger help-inline"></span>
+						</div>
+
+					<div class="col-lg-8 col-md-8">
+		            	<label for="foto">Expediente</label>
+		            		<input type="file" class="form-control"
+                           id="expediente_doc" dane="expediente" value="expediente" data-bind="event:{ change: model.expedienteController.setExpediente}" accept="application/pdf,application">
+               				<span class="errorDocumento text-danger help-inline"></span>
+	            	  </div>
+					</div>
+				  </div>
+				  <div class="form-group">
+                	<div class="col-md-12 col-lg-12 text-right">					           
+                		<a class="btn btn-primary btn-sm" data-bind="click:  model.expedienteController.createOrEdit"><i class="fa fa-save"></i> Guardar</a>
+	                	<a class="btn btn-danger btn-sm" data-bind="click: model.expedienteController.cancelar"><i class="fa fa-undo"></i> Cancelar</a>
+                	</div>
+                </div>
+        		</form>
+        	</div>
+          <div id="tbl_expediente" class="body">
+            <table id="dataTableExpediente" class="table table-bordered table-condensed table-hover table-striped">
+               <thead>
+                <tr>
+                    <th>Anio</th>
+                    <th>Aciones</th>
+                </tr>
+                </thead>
+                <tbody data-bind="dataTablesForEach : {
+                                    data: model.expedienteController.expedientes,
+                                    options: dataTableOptions
+                                  }">
+                    <tr>
+                        <td data-bind="text: anio.anio"></td>
+                        <td width="15%">
+                        	<a target="_blank" class="btn btn-primary btn-xs" data-bind="attr: { href: '/documentos/'+expediente }"> <i class="fa fa-print"></i> </a>
+                            <a href="#" class="btn btn-danger btn-xs" data-bind="click: model.expedienteController.destroy" data-toggle="tooltip" title="eliminar"><i class="fa fa-trash-o"></i></a>
+                        </td>
+                    </tr>
+
+                </tbody>              
+             </table>
+            </div>
+        </div>
+      </div>
+      </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
 	</div>
 </div>
+
 
 
 <script>

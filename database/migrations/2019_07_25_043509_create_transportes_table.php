@@ -17,15 +17,17 @@ class CreateTransportesTable extends Migration
             $table->bigIncrements('id');
             $table->string('placa',25);
             $table->integer('modelo');
-            $table->string('marca',25)->nullable();
-            $table->string('linea',25)->nullable();
+            $table->unsignedBigInteger('marca_transporte_id');
             $table->integer('no_tarjeta')->nullable();
             $table->integer('no_seguro')->nullable();
-            $table->unsignedBigInteger('tipo_transporte_id');
+            $table->string('linea')->nullable();
+            $table->string('no_motor')->nullable();
+            $table->string('no_chasis')->nullable();
+            $table->string('color')->nullable();
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('tipo_transporte_id')->references('id')->on('tipo_transportes');
+            $table->foreign('marca_transporte_id')->references('id')->on('marca_transportes');
         });
     }
 

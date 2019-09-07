@@ -17,6 +17,7 @@ class CreateExpedientesTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('anio_id');
             $table->unsignedBigInteger('propietario_id');
+            $table->string('expediente',150);
             $table->softDeletes();
             $table->timestamps();
 

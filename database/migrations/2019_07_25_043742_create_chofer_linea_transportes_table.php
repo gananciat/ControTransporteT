@@ -21,8 +21,8 @@ class CreateChoferLineaTransportesTable extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('linea_transporte_id')->references('id')->on('propietario_lineas');
-            $table->foreign('chofer_id')->references('id')->on('linea_transportes');
+            $table->foreign('linea_transporte_id')->references('id')->on('linea_transportes');
+            $table->foreign('chofer_id')->references('id')->on('personas');
         });
     }
 

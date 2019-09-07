@@ -28,6 +28,8 @@
     
     <!-- animate.css stylesheet -->
     <link rel="stylesheet" href="{{ asset('lib/animate.css/animate.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('css/jquery.steps.css') }}">
    
     <!-- DATATABLES -->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/dataTables.min.css') }}"/>

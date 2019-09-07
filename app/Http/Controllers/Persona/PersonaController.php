@@ -23,7 +23,7 @@ class PersonaController extends ApiController
 
     public function index()
     {
-        $persona = Persona::with('telefonos')->get();
+        $persona = Persona::with('telefonos','tipo_persona')->get();
         return $this->showAll($persona);
     }
 

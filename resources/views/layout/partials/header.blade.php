@@ -27,7 +27,7 @@
                                 </a>
                             </div>
                             <div class="btn-group">
-                                <a data-placement="bottom" data-original-title="Show / Hide Left" data-toggle="tooltip"
+                                <a data-placement="bottom" data-original-title="esconder" data-toggle="tooltip"
                                    class="btn btn-primary btn-sm toggle-left" id="menu-toggle">
                                     <i class="fa fa-bars"></i>
                                 </a>

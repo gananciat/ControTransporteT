@@ -23,7 +23,7 @@ class AnioController extends ApiController
 
     public function index()
     {
-        $anios = Anio::all();
+        $anios = Anio::with('concepto_pago_anios.concepto_pago')->get();
         return $this->showAll($anios);
     }
 

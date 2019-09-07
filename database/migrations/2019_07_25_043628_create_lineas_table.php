@@ -17,10 +17,12 @@ class CreateLineasTable extends Migration
             $table->bigIncrements('id');
             $table->integer('no_linea');
             $table->unsignedBigInteger('ruta_id');
+            $table->unsignedBigInteger('tipo_transporte_id');
             $table->timestamps();
             $table->softDeletes();
 
             $table->foreign('ruta_id')->references('id')->on('rutas');
+            $table->foreign('tipo_transporte_id')->references('id')->on('tipo_transportes');
         });
     }
 

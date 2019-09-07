@@ -6,11 +6,14 @@ model.anioController = {
         cuotas: ko.observableArray([])
     },
 
-    conceptoPagos: [],
+    conceptoPagos: ko.observableArray([]),
     anios: ko.observableArray([]),
     insertMode: ko.observable(false),
     editMode: ko.observable(false),
     gridMode: ko.observable(true),
+    viewMode: ko.observable(false),
+    anioConceptos:ko.observableArray([]),
+    cuotas: ko.observableArray([]),
     //tipoOpcion: [{ anio: 'Producto', valor: 'P' }, { anio: 'Materia Prima', valor: 'M' }, { anio: 'Vehiculo', valor: 'V' }],
 
 
@@ -19,6 +22,8 @@ model.anioController = {
         var form = model.anioController.anio;
         form.id(data.id);
         form.anio(data.anio);
+        form.cuotas(data.concepto_pago_anios);
+        console.log(form.cuotas());
     },
 
     //nuevo registro, limpiar datos del formulario
@@ -43,6 +48,8 @@ model.anioController = {
           else if (typeof self.anio[key]() === "number") 
             self.anio[key](null)
         });
+
+        self.cuotas([]);
         self.anio.cuotas([]);
     },
 
@@ -69,6 +76,7 @@ model.anioController = {
 
     beforeCreate(){
         let self = model.anioController;
+        self.anio.cuotas = self.cuotas;
         if(!self.validateCuotas()){
             toastr.error('debe ingresar pago de todos los conceptos de pago','error')
             return
@@ -153,9 +161,10 @@ model.anioController = {
         let self = model.anioController;
         self.insertMode(false);
         self.editMode(false);
-        self.gridMode(true)
-        self.clearData()
-        self.initialize()
+        self.viewMode(false);
+        self.gridMode(true);
+        self.clearData();
+        self.initialize();
     },
 
     //get concepto pagos
@@ -164,17 +173,28 @@ model.anioController = {
         //llamada al servicio
         conceptoPagoService.getAll()
         .then(r => {
-            self.conceptoPagos = r.data
+           self.cuotas([])
+           self.conceptoPagos(r.data)
             r.data.forEach(function(item){
-                self.anio.cuotas.push({
+                self.cuotas.push({                    
                     id: item.id,
                     nombre: item.nombre,
                     forma_pago: item.forma_pago,
-                    cuota: ko.observable(null)
+                    cuota: ko.observable(null)  
                 })
-            });
+            })
+            
+            console.log(self.cuotas)
         })
         .catch(r => {})
+    },
+
+    viewInfo: function(data){
+        let self = model.anioController;
+        self.viewMode(true);
+        self.gridMode(false);
+        self.insertMode(false);
+        self.map(data);
     },
 
     initialize: function () {
