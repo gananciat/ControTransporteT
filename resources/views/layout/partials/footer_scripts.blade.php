@@ -48,6 +48,9 @@
 <script src="{{asset('scripts/js/tipoTransporte.js')}}"></script>
 <script src="{{asset('scripts/js/marcaTransporte.js')}}"></script>
 <script src="{{asset('scripts/js/linea.js')}}"></script>
+<script src="{{asset('scripts/js/propietarioLinea.js')}}"></script>
+<script src="{{asset('scripts/js/LineaChofer.js')}}"></script>
+<script src="{{asset('scripts/js/transporte.js')}}"></script>
 
 <!-- scripts  services-->
 <script src="{{asset('scripts/services/TipoPersonaService.js')}}"></script>
@@ -63,6 +66,9 @@
 <script src="{{asset('scripts/services/TipoTransporteService.js')}}"></script>
 <script src="{{asset('scripts/services/MarcaTransporteService.js')}}"></script>
 <script src="{{asset('scripts/services/LineaService.js')}}"></script>
+<script src="{{asset('scripts/services/PropietarioLineaService.js')}}"></script>
+<script src="{{asset('scripts/services/LineaChoferService.js')}}"></script>
+<script src="{{asset('scripts/services/transporteService.js')}}"></script>
 
 <script>
 	$(document).ready(function () {

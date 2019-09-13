@@ -113,13 +113,7 @@
                 </ul>
                 <ul class="collapse">
                   <li>
-                    <a href="#">
-                      <i class="fa fa-angle-right"></i>&nbsp; Tipo Documentos</a>
-                  </li>
-                </ul>
-                <ul class="collapse">
-                  <li>
-                    <a href="#">
+                    <a href="{{ route('transportesView') }}">
                       <i class="fa fa-angle-right"></i>&nbsp; Transportes</a>
                   </li>
                 </ul>

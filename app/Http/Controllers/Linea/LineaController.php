@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Linea;
 
 use App\Linea;
 use App\Transporte;
+use App\LineaChofer;
 use App\LineaTransporte;
 use App\PropietarioLinea;
 use Illuminate\Http\Request;
@@ -26,7 +27,7 @@ class LineaController extends ApiController
 
     public function index()
     {
-        $lineas = Linea::with('ruta.ubicacion','ruta.destino','tipo_transporte','propietarios.propietario','transportes.transporte','transportes.choferes.chofer')->get();
+        $lineas = Linea::with('ruta.ubicacion','ruta.destino','tipo_transporte','propietarios.propietario','transportes','pilotos.chofer')->get();
 
         return $this->showAll($lineas);
     }
@@ -46,7 +47,6 @@ class LineaController extends ApiController
             'marca_transporte_id' => 'required|integer',
             'no_tarjeta' => 'required',
             'no_seguro' => 'required',
-            'linea' => 'required',
             'no_motor' => 'required',
             'no_chasis' => 'required',
             'color' => 'required',
@@ -62,7 +62,21 @@ class LineaController extends ApiController
             $data = $request->all();
             $linea = Linea::create($data);
 
-            $transporte = Transporte::create($data);
+            $transporte = Transporte::create(
+                [
+                    'placa' => $request->placa,
+                    'model' => $request->modelo,
+                    'marca_transporte_id' => $request->marca_transporte_id,
+                    'no_tarjeta' => $request->no_tarjeta,
+                    'no_seguro' => $request->no_seguro,
+                    'linea' => $request->linea,
+                    'no_moto' => $request->no_motor,
+                    'chasis' => $request->no_chasis,
+                    'color' => $request->color,
+                    'modelo' => $request->modelo,
+                    'linea_id' => $linea->id
+                ]
+            );
 
             $linea_propietario = PropietarioLinea::create(
                 ['propietario_id' => $request->propietario_id,
@@ -70,22 +84,16 @@ class LineaController extends ApiController
                 ],
             );
 
-            $linea_transporte = LineaTransporte::create(
-                ['linea_id' => $linea->id,
-                'transporte_id' => $transporte->id],
-            );
-
-            $linea_transporte_titutar = ChoferLineaTransporte::create(
+            $linea_chofer_titutar = LineaChofer::create(
                 ['chofer_id' => $request->chofer_titular,
-                'linea_transporte_id' => $linea_transporte->id,
+                'linea_id' => $linea->id,
                 'tipo_chofer' => 'T'],
             );
 
-
             if($request->chofer_suplente !== null){
-                $linea_transporte_suplente = ChoferLineaTransporte::create(
+                $linea_transporte_suplente = LineaChofer::create(
                     ['chofer_id' => $request->chofer_suplente,
-                     'linea_transporte_id' => $linea_transporte->id,
+                     'linea_id' => $linea->id,
                      'tipo_chofer' => 'S']
                 );
             }

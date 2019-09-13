@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Linea;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -18,8 +19,15 @@ class Transporte extends Model
     	'no_tarjeta',
     	'no_seguro',
     	'no_chasis',
-    	'linea',
+    	'linea_transporte',
     	'no_motor',
-    	'color'
+    	'color',
+        'linea_id',
+        'actual'
     ];
+
+    public function linea()
+    {
+        return $this->belongsTo(Linea::class);
+    }
 }

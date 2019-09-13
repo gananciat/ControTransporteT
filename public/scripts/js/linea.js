@@ -10,7 +10,7 @@ model.lineaController = {
         marca_transporte_id: ko.observable(null),
         no_tarjeta: ko.observable(""),
         no_seguro: ko.observable(""),
-        linea: ko.observable(""),
+        linea_transporte: ko.observable(""),
         no_motor: ko.observable(""),
         no_chasis: ko.observable(""),
         color: ko.observable(""),
@@ -41,7 +41,7 @@ model.lineaController = {
     map: function (data) {
         var form = model.lineaController.linea;
         form.id(data.id);
-        form.nombre(data.nombre);
+        form.no_linea(data.no_linea);
     },
 
     //nuevo registro, limpiar datos del formulario
@@ -51,6 +51,10 @@ model.lineaController = {
 
        self.insertMode(true);
        self.gridMode(false);
+
+       self.flags.showLinea(true);
+       self.flags.showTransporte(false);
+       self.flags.showPiloto(false);
     },
 
     clearData: function(){
@@ -92,7 +96,15 @@ model.lineaController = {
         var data = self.linea;
         var dataParams = ko.toJS(data);
 
-        console.log(dataParams);
+        if(self.validateNoLinea(dataParams.no_linea,dataParams.tipo_transporte_id)){
+            toastr.error("no de linea para tipo de transporte ya existe","error");
+            return
+        }
+
+        if(dataParams.chofer_titular === dataParams.chofer_suplente){
+            toastr.error("piloto titular no puede se el mismo que el piloto suplente","error");
+            return
+        }
 
         //llamada al servicio
         lineaService.create(dataParams)
@@ -103,6 +115,17 @@ model.lineaController = {
         .catch(r => {
             toastr.error(r.response.data.error)
         });
+    },
+
+    validateNoLinea(linea,tipo_transporte){
+        let self = model.lineaController;
+        var existe = false;
+        self.lineas().forEach(function(item){
+            if(item.no_linea === parseInt(linea) && item.tipo_transporte_id === tipo_transporte){
+                existe = true;
+            }
+        })
+        return existe;
     },
 
      update: function () {
@@ -161,6 +184,11 @@ model.lineaController = {
 
     showFormulario: function(flag){
         let self = model.lineaController;
+
+        if (!model.validateForm('#lineaForm')) { 
+            toastr.error("por favor complete los campos obligatorios","error");
+            return;
+        }
 
         Object.keys(self.flags).forEach(function(key,index) {
             self.flags[key](false)
@@ -227,6 +255,18 @@ model.lineaController = {
             self.marcas(r.data);
         })
         .catch(r => {});
+    },
+
+    initializePropietario: function(linea){
+        let self = model.lineaController;
+        model.propietarioLineaController.initialize(linea.id);
+        self.map(linea);
+    },
+
+    initializeChofer: function(linea){
+        let self = model.lineaController;
+        model.lineaChoferController.initialize(linea.id);
+        self.map(linea);
     },
 
     initialize: function () {

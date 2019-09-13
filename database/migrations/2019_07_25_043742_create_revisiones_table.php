@@ -17,14 +17,14 @@ class CreateRevisionesTable extends Migration
             $table->bigIncrements('id');
             $table->datetime('fecha');
             $table->unsignedBigInteger('tipo_revision_id');
-            $table->unsignedBigInteger('linea_transporte_id');
+            $table->unsignedBigInteger('transporte_id');
             $table->unsignedBigInteger('empleado_id');
             $table->string('observacion',500);
             $table->softDeletes();
             $table->timestamps();
 
             $table->foreign('tipo_revision_id')->references('id')->on('tipo_revisiones');
-            $table->foreign('linea_transporte_id')->references('id')->on('linea_transportes');
+            $table->foreign('transporte_id')->references('id')->on('transportes');
             $table->foreign('empleado_id')->references('id')->on('personas');
         });
     }

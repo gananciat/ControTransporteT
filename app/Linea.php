@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Ruta;
+use App\LineaChofer;
 use App\TipoTransporte;
 use App\PropietarioLinea;
 use Illuminate\Database\Eloquent\Model;
@@ -32,11 +33,16 @@ class Linea extends Model
 
     public function propietario_actual()
     {
-        return $this->hasMany(PropietarioLinea::class)->where('actual');
+        return $this->hasOne(PropietarioLinea::class)->where('actual', true);
     }
 
     public function transportes()
     {
-    	return $this->hasMany(LineaTransporte::class);
+    	return $this->hasMany(Transporte::class);
+    }
+
+    public function pilotos()
+    {
+        return $this->hasMany(LineaChofer::class);
     }
 }

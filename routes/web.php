@@ -57,3 +57,12 @@ Route::resource('marcaTransportes', 'MarcaTransporte\MarcaTransporteController',
 
 Route::get('lineasView', 'Linea\LineaController@view')->name('lineasView');
 Route::resource('lineas', 'Linea\LineaController', ['except' => ['create', 'edit']]);
+Route::resource('lineas.propietarios', 'Linea\LineaPropietarioLineaController', ['except' => ['create', 'edit']]);
+Route::resource('lineas.chofers', 'Linea\LineaLineaChoferController', ['except' => ['create', 'edit']]);
+
+Route::resource('propietarioLineas', 'Linea\PropietarioLineaController', ['except' => ['create', 'edit']]);
+
+Route::resource('lineaChofers', 'Linea\LineaChoferController', ['except' => ['create', 'edit']]);
+
+Route::get('transportesView', 'Transporte\TransporteController@view')->name('transportesView');
+Route::resource('transportes', 'Transporte\TransporteController', ['except' => ['create', 'edit']]);

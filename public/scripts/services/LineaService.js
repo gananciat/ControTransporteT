@@ -8,6 +8,16 @@ lineaService = {
         return axios.get(`lineas/${id}`);
     },
 
+    getPropietarios(id) {
+        let self = this;
+        return axios.get(`lineas/${id}/propietarios`);
+    },
+
+    getChoferes(id) {
+        let self = this;
+        return axios.get(`lineas/${id}/chofers`);
+    },
+
     create(data) {
         return axios.post(`lineas`, data);
     },

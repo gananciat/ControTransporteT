@@ -18,14 +18,14 @@ class CreatePagoMultasTable extends Migration
             $table->decimal('descuento',11,2)->default(0);
             $table->unsignedBigInteger('causa_id');
             $table->unsignedBigInteger('tipo_multa_id');
-            $table->unsignedBigInteger('chofer_linea_transporte_id');
+            $table->unsignedBigInteger('linea_chofer_id');
             $table->unsignedBigInteger('empleado_id');
             $table->string('observacion',500);
             $table->timestamps();
 
             $table->foreign('causa_id')->references('id')->on('causas');
             $table->foreign('tipo_multa_id')->references('id')->on('tipo_multas');
-            $table->foreign('chofer_linea_transporte_id')->references('id')->on('chofer_linea_transportes');
+            $table->foreign('linea_chofer_id')->references('id')->on('linea_chofer');
             $table->foreign('empleado_id')->references('id')->on('personas');
         });
     }
