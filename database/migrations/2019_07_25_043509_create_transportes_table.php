@@ -17,8 +17,8 @@ class CreateTransportesTable extends Migration
             $table->integer('modelo');
             $table->unsignedBigInteger('marca_transporte_id');
             $table->unsignedBigInteger('linea_id');
-            $table->integer('no_tarjeta')->nullable();
-            $table->integer('no_seguro')->nullable();
+            $table->string('no_tarjeta')->nullable();
+            $table->string('no_seguro')->nullable();
             $table->string('linea_transporte')->nullable();
             $table->string('no_motor')->nullable();
             $table->string('no_chasis')->nullable();
