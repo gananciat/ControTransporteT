@@ -128,7 +128,7 @@ model.transporteController = {
 
     validateIfExists: function(linea_id){
         let self = model.transporteController;
-        var tipo = self.transportes().find(x => x.linea_id === linea_id);
+        var tipo = self.transportes().find(x => x.linea_id === linea_id && x.actual === 1);
         return tipo;
     },
 
