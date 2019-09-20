@@ -16,11 +16,11 @@ class CreateCausasTable extends Migration
         Schema::create('causas', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nombre',1000);
-            $table->unsignedBigInteger('monto_id');
+            $table->unsignedBigInteger('monto_multa_id');
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('monto_id')->references('id')->on('monto_multas');
+            $table->foreign('monto_multa_id')->references('id')->on('monto_multas');
         });
     }
 

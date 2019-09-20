@@ -20,5 +20,8 @@ class DatabaseSeeder extends Seeder
         $this->call(RutaSeeder::class);
         $this->call(TipoTransporteSeeder::class);
         $this->call(MarcaTransporteSeeder::class);
+        $this->call(MontoMultaSeeder::class);
+        $this->call(TipoMultaSeeder::class);
+        $this->call(CausaSeeder::class);
     }
 }

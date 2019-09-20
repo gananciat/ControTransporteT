@@ -20,6 +20,7 @@
 <script type="text/javascript" src="{{ asset('js/dataTables.min.js') }}"></script>
 
 <script src="{{ asset('js/application.js') }}"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/chosen/1.1.0/chosen.jquery.min.js"></script>
 
 <!--  -->
 <script src="{{ asset('js/jquery.validate.js') }}"></script>
@@ -51,6 +52,10 @@
 <script src="{{asset('scripts/js/propietarioLinea.js')}}"></script>
 <script src="{{asset('scripts/js/LineaChofer.js')}}"></script>
 <script src="{{asset('scripts/js/transporte.js')}}"></script>
+<script src="{{asset('scripts/js/montoMulta.js')}}"></script>
+<script src="{{asset('scripts/js/tipoMulta.js')}}"></script>
+<script src="{{asset('scripts/js/causa.js')}}"></script>
+<script src="{{asset('scripts/js/multa.js')}}"></script>
 
 <!-- scripts  services-->
 <script src="{{asset('scripts/services/TipoPersonaService.js')}}"></script>
@@ -69,6 +74,10 @@
 <script src="{{asset('scripts/services/PropietarioLineaService.js')}}"></script>
 <script src="{{asset('scripts/services/LineaChoferService.js')}}"></script>
 <script src="{{asset('scripts/services/transporteService.js')}}"></script>
+<script src="{{asset('scripts/services/MontoMultaService.js')}}"></script>
+<script src="{{asset('scripts/services/TipoMultaService.js')}}"></script>
+<script src="{{asset('scripts/services/CausaService.js')}}"></script>
+<script src="{{asset('scripts/services/MultaService.js')}}"></script>
 
 <script>
 	$(document).ready(function () {

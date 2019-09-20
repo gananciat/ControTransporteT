@@ -41,6 +41,11 @@ class Linea extends Model
     	return $this->hasMany(Transporte::class);
     }
 
+    public function transporte_actual()
+    {
+        return $this->hasOne(Transporte::class)->where('actual',true);
+    }
+
     public function pilotos()
     {
         return $this->hasMany(LineaChofer::class);

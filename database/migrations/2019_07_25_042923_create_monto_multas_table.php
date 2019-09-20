@@ -16,6 +16,7 @@ class CreateMontoMultasTable extends Migration
         Schema::create('monto_multas', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->decimal('monto',11,2);
+            $table->integer('porcentaje_descuento');
             $table->softDeletes();
             $table->timestamps();
         });

@@ -192,6 +192,27 @@ ko.bindingHandlers.dataTablesForEach = {
     }
 };
 
+ko.bindingHandlers.chosen = {
+    init: function (element, valueAccessor, allBindings) {
+        debugger
+        ko.bindingHandlers.options.init(element, valueAccessor, allBindings);
+        var options = ko.unwrap(valueAccessor);
+        var el = $(element);
+        el.chosen();
+        var selectedOptions = allBindings.get('selectedOptions');
+        if (ko.isObservable(selectedOptions)) {
+            selectedOptions.subscribe(function () {
+                setTimeout(function () {
+                    el.trigger('chosen:updated');
+                }, 10);
+            }, null, 'change');
+        }
+    },
+    update: function (element, valueAccessor, allBindings) {
+        ko.bindingHandlers.options.update(element, valueAccessor, allBindings);
+    }
+};
+
 
 var model = {
     view: ko.observable("welcome"),

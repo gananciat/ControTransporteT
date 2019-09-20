@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePagoMultasTable extends Migration
+class CreateMultasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,20 +13,29 @@ class CreatePagoMultasTable extends Migration
      */
     public function up()
     {
-        Schema::create('pago_multas', function (Blueprint $table) {
+        Schema::create('multas', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->decimal('descuento',11,2)->default(0);
             $table->unsignedBigInteger('causa_id');
             $table->unsignedBigInteger('tipo_multa_id');
             $table->unsignedBigInteger('linea_chofer_id');
-            $table->unsignedBigInteger('empleado_id');
-            $table->string('observacion',500);
+            $table->unsignedBigInteger('transporte_id');
+            $table->unsignedBigInteger('agente_id');
+            $table->date('fecha_multa');
+            $table->date('fecha_pago')->nullable();
+            $table->boolean('pagado')->default(0);
+            $table->boolean('fuera_de_tiempo')->default(0);
+            $table->decimal('total_pagado',11,2)->nullable();
+            $table->decimal('total_a_pagar',11,2);
+            $table->decimal('descuento',11,2)->nullable();
+            $table->string('observacion',500)->nullable();
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('causa_id')->references('id')->on('causas');
             $table->foreign('tipo_multa_id')->references('id')->on('tipo_multas');
             $table->foreign('linea_chofer_id')->references('id')->on('linea_chofer');
-            $table->foreign('empleado_id')->references('id')->on('personas');
+            $table->foreign('agente_id')->references('id')->on('personas');
+            $table->foreign('transporte_id')->references('id')->on('transportes');
         });
     }
 

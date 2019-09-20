@@ -119,14 +119,35 @@
                 </ul>
               </li>
               <li class="">
-                <a href="#">
-                  <i class="fa fa-file"></i><span class="link-title">&nbsp; Revisiones</span>
+                <a href="javascript:;">
+                  <i class="fa fa-money "></i>
+                  <span class="link-title">Multas</span>
+                  <span class="fa arrow"></span>
                 </a>
-              </li>
-              <li class="">
-                <a href="#">
-                  <i class="fa fa-file"></i><span class="link-title">&nbsp; Pagos</span>
-                </a>
+                <ul class="collapse">
+                  <li>
+                    <a href="{{ route('montoMultasView') }}">
+                      <i class="fa fa-angle-right"></i>&nbsp; Montos</a>
+                  </li>
+                </ul>
+                <ul class="collapse">
+                  <li>
+                    <a href="{{ route('tipoMultasView') }}">
+                      <i class="fa fa-angle-right"></i>&nbsp; Tipos de multas</a>
+                  </li>
+                </ul>
+                <ul class="collapse">
+                  <li>
+                    <a href="{{ route('causasView') }}">
+                      <i class="fa fa-angle-right"></i>&nbsp; Motivos o causas</a>
+                  </li>
+                </ul>
+                <ul class="collapse">
+                  <li>
+                    <a href="{{ route('multasView') }}">
+                      <i class="fa fa-angle-right"></i>&nbsp; Ingresar multas</a>
+                  </li>
+                </ul>
               </li>
               <li class="">
                 <a href="javascript:;">

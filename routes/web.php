@@ -66,3 +66,15 @@ Route::resource('lineaChofers', 'Linea\LineaChoferController', ['except' => ['cr
 
 Route::get('transportesView', 'Transporte\TransporteController@view')->name('transportesView');
 Route::resource('transportes', 'Transporte\TransporteController', ['except' => ['create', 'edit']]);
+
+Route::get('montoMultasView', 'MontoMulta\MontoMultaController@view')->name('montoMultasView');
+Route::resource('montoMultas', 'MontoMulta\MontoMultaController', ['except' => ['create', 'edit']]);
+
+Route::get('tipoMultasView', 'TipoMulta\TipoMultaController@view')->name('tipoMultasView');
+Route::resource('tipoMultas', 'tipoMulta\tipoMultaController', ['except' => ['create', 'edit']]);
+
+Route::get('causasView', 'Causa\CausaController@view')->name('causasView');
+Route::resource('causas', 'Causa\CausaController', ['except' => ['create', 'edit']]);
+
+Route::get('multasView', 'Multa\MultaController@view')->name('multasView');
+Route::resource('multas', 'Multa\MultaController', ['except' => ['create', 'edit']]);

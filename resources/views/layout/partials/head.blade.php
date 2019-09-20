@@ -34,4 +34,5 @@
     <!-- DATATABLES -->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/dataTables.min.css') }}"/>
     <link href="{{ asset('css/toastr.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/chosen/1.1.0/chosen.min.css">
 

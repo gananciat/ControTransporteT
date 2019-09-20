@@ -17,8 +17,8 @@ class LineaChoferController extends ApiController
 
     public function index()
     {
-        $lineaChofers = LineaChofer::all();
-        return $this->showAll($linea_choferes);
+        $lineaChofers = LineaChofer::with('linea.transporte_actual','chofer')->get();
+        return $this->showAll($lineaChofers);
     }
 
     public function store(Request $request)
