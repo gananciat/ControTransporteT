@@ -70,8 +70,8 @@ class LineaController extends ApiController
                     'no_tarjeta' => $request->no_tarjeta,
                     'no_seguro' => $request->no_seguro,
                     'linea' => $request->linea,
-                    'no_moto' => $request->no_motor,
-                    'chasis' => $request->no_chasis,
+                    'no_motor' => $request->no_motor,
+                    'no_chasis' => $request->no_chasis,
                     'color' => $request->color,
                     'modelo' => $request->modelo,
                     'linea_id' => $linea->id

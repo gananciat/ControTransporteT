@@ -22,6 +22,7 @@ class CreatePersonasTable extends Migration
             $table->string('apellido_uno',25);
             $table->string('apellido_dos',25)->nullable();
             $table->string('email')->nullable();
+            $table->string('licencia',25)->nullable();
             $table->date('fecha_nac')->nullable();
             $table->string('direccion',400)->nullable();
             $table->unsignedBigInteger('tipo_persona_id');

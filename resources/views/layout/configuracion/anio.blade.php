@@ -112,7 +112,7 @@
 					<h2>Detalle de cuotas y pagos del año <span data-bind="text: model.anioController.anio.anio"></span>
 					</h2>
 					<ul class="pricing-table dark" contenteditable="" id="light">
-						<!-- ko foreach: {data: model.anioController.anio.cuotas(), as: 'cuota'} -->
+						<!-- ko foreach: {data: model.anioController.cuotasAnios, as: 'cuota'} -->
 						<li class="active success col-lg-3 " style="height: 300px;">
 							<h3><span data-bind="text: concepto_pago.nombre"></span></h3>
 							<div class="price-body">

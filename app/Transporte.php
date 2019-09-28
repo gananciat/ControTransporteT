@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Linea;
+use App\MarcaTransporte;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -29,5 +30,10 @@ class Transporte extends Model
     public function linea()
     {
         return $this->belongsTo(Linea::class);
+    }
+
+    public function marca_transporte()
+    {
+        return $this->belongsTo(MarcaTransporte::class);
     }
 }

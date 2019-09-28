@@ -50,4 +50,9 @@ class Linea extends Model
     {
         return $this->hasMany(LineaChofer::class);
     }
+
+    public function piloto_titular_actual()
+    {
+        return $this->hasOne(LineaChofer::class)->where('actual',true)->where('tipo_chofer','T');
+    }
 }

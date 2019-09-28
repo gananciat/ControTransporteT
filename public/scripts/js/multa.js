@@ -11,7 +11,8 @@ model.multaController = {
         total_a_pagar: ko.observable(null),
         transporte: ko.observable(""),
         no_linea: ko.observable(""),
-        observacion: ko.observable("")
+        observacion: ko.observable(""),
+        no_multa: ko.observable("")
     },
 
     multas: ko.observableArray([]),
@@ -112,13 +113,13 @@ model.multaController = {
         let self= model.multaController;
         bootbox.confirm({ 
             title: "eliminar multa",
-            message: "¿Esta seguro que quiere eliminar " + data.nombre + "?",
+            message: "¿Esta seguro que quiere anula multa?",
             callback: function(result){ 
                 if (result) {
                     //llamada al servicio
                     multaService.destroy(data)
                     .then(r => {
-                        toastr.info("registro eliminado éxito",'éxito');
+                        toastr.info("multa ah sido anulada con éxito",'éxito');
                         self.returnGrid();
                     })
                     .catch(r => {

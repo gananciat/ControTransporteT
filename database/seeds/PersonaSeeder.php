@@ -38,6 +38,7 @@ class PersonaSeeder extends Seeder
         $data->email = 'juan@gmail.com';
         $data->fecha_nac = '1990-06-15';
         $data->tipo_persona_id = 3;
+        $data->licencia = '77665456';
         $data->save();
 
         $data = new Persona();
@@ -49,6 +50,29 @@ class PersonaSeeder extends Seeder
         $data->email = 'juan@gmail.com';
         $data->fecha_nac = '1990-06-15';
         $data->tipo_persona_id = 3;
+        $data->licencia = '77665876';
+        $data->save();
+
+        $data = new Persona();
+        $data->cui = '123456789';
+        $data->nombre_uno = 'Estuardo';
+        $data->nombre_dos = '';
+        $data->apellido_uno = 'Gonzalez';
+        $data->apellido_dos = '';
+        $data->email = 'estuardo@gmail.com';
+        $data->fecha_nac = '1990-06-15';
+        $data->tipo_persona_id = 4;
+        $data->save();
+
+        $data = new Persona();
+        $data->cui = '123456789';
+        $data->nombre_uno = 'Chepe';
+        $data->nombre_dos = '';
+        $data->apellido_uno = 'Leke';
+        $data->apellido_dos = '';
+        $data->email = 'chepe@gmail.com';
+        $data->fecha_nac = '1990-06-15';
+        $data->tipo_persona_id = 5;
         $data->save();
     }
 }

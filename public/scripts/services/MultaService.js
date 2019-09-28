@@ -18,6 +18,10 @@ multaService = {
 
     destroy(data){
         return axios.delete(`multas/${data.id}`);
+    },
+
+    revertir(data){
+        return axios.put(`multas_revertir/${data.id}`);
     }
 
 }

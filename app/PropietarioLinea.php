@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Pago;
 use App\Linea;
 use App\Persona;
 use Illuminate\Database\Eloquent\Model;
@@ -23,5 +24,10 @@ class PropietarioLinea extends Model
     public function propietario()
     {
     	return $this->belongsTo(Persona::class, 'propietario_id');
+    }
+
+    public function pagos()
+    {
+        return $this->hasMany(Pago::class,'propietario_linea_id');
     }
 }

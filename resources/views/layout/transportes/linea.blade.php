@@ -158,7 +158,7 @@
 
 				                    <div class="col-lg-4">
 				                    <label for="text2"> No tarjeta circulación</label>
-				                        <input type="number" id="no_tarjeta" name="no_tarjeta" placeholder="ingrese modelo" class="form-control"data-bind="value: no_tarjeta"
+				                        <input type="text" id="no_tarjeta" name="no_tarjeta" placeholder="ingrese modelo" class="form-control"data-bind="value: no_tarjeta"
 					                           data-error=".errorTarjeta"
 					                           minlength="4" maxlength="20" required>
 					                    <span class="errorTarjeta text-danger help-inline"></span>
@@ -166,7 +166,7 @@
 
 				                    <div class="col-lg-4">
 				                    <label for="text2"> No seguro</label>
-				                        <input type="number" id="no_seguro" name="no_seguro" placeholder="ingrese modelo" class="form-control"data-bind="value: no_seguro"
+				                        <input type="text" id="no_seguro" name="no_seguro" placeholder="ingrese modelo" class="form-control"data-bind="value: no_seguro"
 					                           data-error=".errorSeguro"
 					                           minlength="4" maxlength="20" required>
 					                    <span class="errorSeguro text-danger help-inline"></span>
@@ -174,7 +174,7 @@
 
 				                    <div class="col-lg-4">
 				                    <label for="text2"> No motor</label>
-				                        <input type="number" id="no_motor" name="no_motor" placeholder="ingrese no motor" class="form-control"data-bind="value: no_motor"
+				                        <input type="text" id="no_motor" name="no_motor" placeholder="ingrese no motor" class="form-control"data-bind="value: no_motor"
 					                           data-error=".errorMotor"
 					                           minlength="4" maxlength="16" required>
 					                    <span class="errorMotor text-danger help-inline"></span>
@@ -182,7 +182,7 @@
 
 				                    <div class="col-lg-4">
 				                    <label for="text2"> No chasis</label>
-				                        <input type="number" id="no_chasis" name="no_chasis" placeholder="ingrese no chasis" class="form-control"data-bind="value: no_chasis"
+				                        <input type="text" id="no_chasis" name="no_chasis" placeholder="ingrese no chasis" class="form-control"data-bind="value: no_chasis"
 					                           data-error=".erorChasis"
 					                           minlength="4" maxlength="15" required>
 					                    <span class="erorChasis text-danger help-inline"></span>

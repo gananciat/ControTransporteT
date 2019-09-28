@@ -14,16 +14,17 @@ model.anioController = {
     viewMode: ko.observable(false),
     anioConceptos:ko.observableArray([]),
     cuotas: ko.observableArray([]),
+    cuotasAnios: ko.observableArray([]),
     //tipoOpcion: [{ anio: 'Producto', valor: 'P' }, { anio: 'Materia Prima', valor: 'M' }, { anio: 'Vehiculo', valor: 'V' }],
 
 
     //mapear funcion para editar
     map: function (data) {
+        let self = model.anioController;
         var form = model.anioController.anio;
         form.id(data.id);
         form.anio(data.anio);
-        form.cuotas(data.concepto_pago_anios);
-        console.log(form.cuotas());
+        self.cuotasAnios(data.concepto_pago_anios);
     },
 
     //nuevo registro, limpiar datos del formulario
@@ -89,7 +90,6 @@ model.anioController = {
         var data = self.anio;
         var dataParams = ko.toJS(data);
 
-        console.log(dataParams);
         //llamada al servicio
         anioService.create(dataParams)
         .then(r => {

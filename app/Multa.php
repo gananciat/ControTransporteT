@@ -7,6 +7,7 @@ use App\Persona;
 use App\TipoMulta;
 use App\Transporte;
 use App\LineaChofer;
+use App\InspeccionMulta;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -29,7 +30,8 @@ class Multa extends Model
     	'total_a_pagar',
     	'descuento',
     	'observacion',
-    	'fuera_de_tiempo'
+    	'fuera_de_tiempo',
+        'no_multa'
     ];
 
     public function linea_chofer()
@@ -55,5 +57,10 @@ class Multa extends Model
     public function agente()
     {
     	return $this->belongsTo(Persona::class,'agente_id');
+    }
+
+    public function inspeccion_multa()
+    {
+        return $this->hasOne(InspeccionMulta::class,'multa_id');
     }
 }

@@ -148,6 +148,30 @@
                       <i class="fa fa-angle-right"></i>&nbsp; Ingresar multas</a>
                   </li>
                 </ul>
+                <ul class="collapse">
+                  <li>
+                    <a href="{{ route('pagoMultasView') }}">
+                      <i class="fa fa-angle-right"></i>&nbsp; Pago de multas</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="">
+                <a href="javascript:;">
+                  <i class="fa fa-money "></i>
+                  <span class="link-title">Pagos anuales</span>
+                  <span class="fa arrow"></span>
+                </a>
+                <ul class="collapse">
+                  <li>
+                    <a href="{{ route('pagosView') }}">
+                      <i class="fa fa-angle-right"></i>&nbsp; Pagos</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="">
+                <a href="{{ route('inspeccionesView') }}">
+                  <i class="fa fa-check"></i><span class="link-title">&nbsp; Inspecciones</span>
+                </a>
               </li>
               <li class="">
                 <a href="javascript:;">

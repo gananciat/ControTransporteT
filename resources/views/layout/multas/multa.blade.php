@@ -31,7 +31,7 @@
                                                     options: dataTableOptions
                                                   }">
                                     <tr>
-                                    	<td width="3%" data-bind="text: id"></td>
+                                    	<td width="3%" data-bind="text: no_multa"></td>
                                     	<td width="8%" data-bind="text: tipo_multa.nombre"></td>
                                         <td data-bind="text: causa.nombre"></td>
                                         <td width="8%" data-bind="text: transporte.placa"></td>
@@ -42,12 +42,20 @@
                                         <td width="8%" data-bind="text: formatCurrency(parseFloat(total_a_pagar).toFixed(2))"></td>
 
 
-                                        <td width="8%"><span class="label" data-bind="text: (pagado === 1 ? 'Cancelado' : 'Pendiente'), css: (pagado === 1 ? 'label-success' : 'label-danger')"></span></td>
+                                        <td width="8%">
+                                         <!-- ko if: deleted_at === null -->
+                                        	<span class="label" data-bind="text: (pagado === 1 ? 'Cancelado' : 'Pendiente'), css: (pagado === 1 ? 'label-success' : 'label-danger')"></span>
+                                        	<!-- /ko -->
+                                        	<!-- ko if: deleted_at !== null -->
+                                        	<span class="label label-danger"> anulada</span>
+                                        	<!-- /ko -->
+                                          </td>
                                         <td width="10%">
-                                            <a href="#" class="btn btn-warning btn-xs" data-bind="click: model.multaController.editar" data-toggle="tooltip" title="editar"><i class="fa fa-pencil-square-o"></i></a>
-
-                                            <a href="#" class="btn btn-danger btn-xs" data-bind="click: model.multaController.destroy" data-toggle="tooltip" title="eliminar"><i class="fa fa-trash-o"></i></a>
+                                        	<!-- ko if: deleted_at === null -->
+                                            <a href="#" class="btn btn-danger btn-xs" data-bind=" click: model.multaController.destroy" data-toggle="tooltip" title="anular multa"><i class="fa fa-ban"></i></a>
+                                        	<!-- /ko -->
                                         </td>
+
                                     </tr>
 
                                 </tbody>              
@@ -77,7 +85,12 @@
 					                    required></select>
 					                    <span class="errorCausa text-danger help-inline"></span>
 				                    </div>
-
+				                    <div class="col-lg-2">
+				                    <label for="text2">Numero</label>
+				                        <input type="number" id="no_multa" name="no_multa" class="form-control"data-bind="value: no_multa"
+					                           data-error=".no_multa" required>
+					                    <span class="no_multa text-danger help-inline"></span>
+				                    </div>
 				                    <div class="col-lg-2">
 				                    <label for="text2">Monto de multa</label>
 				                        <input type="text" id="total_a_pagar" name="total_a_pagar" class="form-control"data-bind="value: total_a_pagar"
@@ -85,7 +98,7 @@
 					                    <span class="total_a_pagar text-danger help-inline"></span>
 				                    </div>
 
-				                    <div class="col-lg-4 col-md-4 col-sm-4">
+				                    <div class="col-lg-3 col-md-3 col-sm-3">
 				                    <label for="tipo_multa">Tipo de multa</label>
 				                       <select class="form-control" id="causa_id" data-bind="options: model.multaController.tipos, optionsText: 'nombre', optionsValue: 'id',
 				                       optionsCaption: '--seleccione tipo de multa--',
@@ -95,7 +108,7 @@
 					                    <span class="errorTipo text-danger help-inline"></span>
 				                    </div>
 
-				                    <div class="col-lg-6 col-md-6 col-sm-6">
+				                    <div class="col-lg-5 col-md-5 col-sm-5">
 				                    <label for="linea_chofer_id">Chofer</label>
 				                       <select class="form-control" id="causa_id" data-bind="options: model.multaController.pilotos, optionsText: function(chofer) {return chofer.chofer.cui+' / '+chofer.chofer.nombre_uno+' '+chofer.chofer.apellido_uno+' / piloto '+chofer.tipo_chofer}, optionsValue: 'id',
 				                       optionsCaption: '--seleccione piloto--',
@@ -133,7 +146,7 @@
 				                    </div>
 
 				                    <div class="col-lg-12 col-sm-12 col-md-12">
-				                    <label for="text2">Fecha multa</label>
+				                    <label for="text2">Descripción</label>
 				                        <textarea rows="3" id="observacion" name="observacion" class="form-control"data-bind="value: observacion"></textarea>
 				                    </div>
 				                </div>

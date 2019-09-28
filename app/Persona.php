@@ -5,6 +5,7 @@ namespace App;
 use App\Expediente;
 use App\TipoPersona;
 use App\TelefonoPersona;
+use App\PropietarioLinea;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -39,5 +40,15 @@ class Persona extends Model
     public function tipo_persona()
     {
         return $this->belongsTo(TipoPersona::class);
+    }
+
+    public function propietario_linea()
+    {
+        return $this->hasMany(PropietarioLinea::class, 'propietario_id');
+    }
+
+    public function propietario_linea_actual()
+    {
+        return $this->hasMany(PropietarioLinea::class, 'propietario_id')->where('actual',true);
     }
 }

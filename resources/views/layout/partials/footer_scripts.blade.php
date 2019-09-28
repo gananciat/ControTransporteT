@@ -56,6 +56,9 @@
 <script src="{{asset('scripts/js/tipoMulta.js')}}"></script>
 <script src="{{asset('scripts/js/causa.js')}}"></script>
 <script src="{{asset('scripts/js/multa.js')}}"></script>
+<script src="{{asset('scripts/js/pagoMulta.js')}}"></script>
+<script src="{{asset('scripts/js/pago.js')}}"></script>
+<script src="{{asset('scripts/js/inspeccion.js')}}"></script>
 
 <!-- scripts  services-->
 <script src="{{asset('scripts/services/TipoPersonaService.js')}}"></script>
@@ -78,6 +81,8 @@
 <script src="{{asset('scripts/services/TipoMultaService.js')}}"></script>
 <script src="{{asset('scripts/services/CausaService.js')}}"></script>
 <script src="{{asset('scripts/services/MultaService.js')}}"></script>
+<script src="{{asset('scripts/services/pagoService.js')}}"></script>
+<script src="{{asset('scripts/services/inspeccionService.js')}}"></script>
 
 <script>
 	$(document).ready(function () {

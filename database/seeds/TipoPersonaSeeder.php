@@ -27,5 +27,9 @@ class TipoPersonaSeeder extends Seeder
         $data = new TipoPersona();
         $data->nombre = 'Agentes';
         $data->save();
+
+        $data = new TipoPersona();
+        $data->nombre = 'Juez';
+        $data->save();
     }
 }

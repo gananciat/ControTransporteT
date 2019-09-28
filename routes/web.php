@@ -43,6 +43,8 @@ Route::resource('mess', 'Mes\MesController', ['except' => ['create', 'edit']]);
 Route::get('personasView', 'Persona\PersonaController@view')->name('personasView');
 Route::resource('personas', 'Persona\PersonaController', ['except' => ['create', 'edit']]);
 Route::resource('personas.expedientes', 'Persona\PersonaExpedienteController', ['except' => ['create', 'edit']]);
+Route::resource('personas.lineas', 'Persona\PropietarioLineaController', ['except' => ['create', 'edit']]);
+Route::resource('personas.pagos', 'Persona\PropietarioPagoController', ['except' => ['create', 'edit']]);
 
 Route::resource('expedientes', 'Expediente\ExpedienteController', ['except' => ['create', 'edit']]);
 
@@ -77,4 +79,13 @@ Route::get('causasView', 'Causa\CausaController@view')->name('causasView');
 Route::resource('causas', 'Causa\CausaController', ['except' => ['create', 'edit']]);
 
 Route::get('multasView', 'Multa\MultaController@view')->name('multasView');
+Route::get('pagoMultasView', 'Multa\MultaController@viewPagos')->name('pagoMultasView');
 Route::resource('multas', 'Multa\MultaController', ['except' => ['create', 'edit']]);
+Route::put('multas_revertir/{id}', 'Multa\MultaController@revertir')->name('multas_revertir');
+
+Route::get('pagosView', 'Pago\PagoController@view')->name('pagosView');
+Route::resource('pagos', 'Pago\PagoController', ['except' => ['create', 'edit']]);
+Route::put('pagos_anular/{id}', 'Pago\PagoController@anular')->name('pagos_anular');
+
+Route::get('inspeccionesView', 'Inspeccion\InspeccionController@view')->name('inspeccionesView');
+Route::resource('inspeccions', 'Inspeccion\InspeccionController', ['except' => ['create', 'edit']]);

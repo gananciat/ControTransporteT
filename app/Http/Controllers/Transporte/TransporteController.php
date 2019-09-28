@@ -22,7 +22,7 @@ class TransporteController extends ApiController
 
     public function index()
     {
-        $transportes = Transporte::with('linea.propietario_actual.propietario', 'linea.tipo_transporte')->get();
+        $transportes = Transporte::with('linea.propietario_actual.propietario', 'linea.tipo_transporte','marca_transporte')->get();
         return $this->showAll($transportes);
     }
 
