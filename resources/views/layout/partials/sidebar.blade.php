@@ -27,7 +27,7 @@
               <li class="nav-header">Menu</li>
               <li class="nav-divider"></li>
               <li class="">
-                <a href="dashboard.html">
+                <a href="/">
                   <i class="fa fa-dashboard"></i><span class="link-title">&nbsp;Escritorio</span>
                 </a>
               </li>

@@ -9,7 +9,7 @@
 			        <div class="box">
 			            <header>
 			                <div class="icons"><i class="fa fa-table"></i></div>
-			                <h4 class="title">&nbsp; Tipo Personas <button class="text-right btn btn-success btn-sm" data-bind="click: model.conceptoPagoController.nuevo"> <i class="fa fa-plus-square-o"></i> Nuevo</button></h4>
+			                <h4 class="title">&nbsp; Concepto pago <button class="text-right btn btn-success btn-sm" data-bind="click: model.conceptoPagoController.nuevo"> <i class="fa fa-plus-square-o"></i> Nuevo</button></h4>
 			            </header>
 			            <div id="collapse4" class="body">
 			                <table id="dataTable" class="table table-bordered table-condensed table-hover table-striped">
