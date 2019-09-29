@@ -84,6 +84,13 @@ class LineaController extends ApiController
                 ],
             );
 
+            $chofer_actual = LineaChofer::where('chofer_id',$request->chofer_titular)->first();
+
+            if($chofer_actual !== null){
+                $chofer_actual->actual = false;
+                $chofer_actual->save();
+            }
+
             $linea_chofer_titutar = LineaChofer::create(
                 ['chofer_id' => $request->chofer_titular,
                 'linea_id' => $linea->id,
@@ -91,6 +98,14 @@ class LineaController extends ApiController
             );
 
             if($request->chofer_suplente !== null){
+
+                $chofer_s = LineaChofer::where('chofer_id',$request->chofer_suplente)->first();
+
+                if($chofer_s !== null){
+                    $chofer_s->actual = false;
+                    $chofer_s->save();
+                }
+
                 $linea_transporte_suplente = LineaChofer::create(
                     ['chofer_id' => $request->chofer_suplente,
                      'linea_id' => $linea->id,
@@ -124,7 +139,12 @@ class LineaController extends ApiController
 
     public function destroy(linea $linea)
     {
+        $pagos = $linea->propietarios()->with('pagos')->get()->pluck('pagos')->collapse();
+
+        if(count($pagos)) return $this->errorResponse("no se puede eliminar linea, ya se han realizado pagos",422);
+
         $linea->delete();
+
         return $this->showOne($linea);
     }
 }

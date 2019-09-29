@@ -89,3 +89,7 @@ Route::put('pagos_anular/{id}', 'Pago\PagoController@anular')->name('pagos_anula
 
 Route::get('inspeccionesView', 'Inspeccion\InspeccionController@view')->name('inspeccionesView');
 Route::resource('inspeccions', 'Inspeccion\InspeccionController', ['except' => ['create', 'edit']]);
+
+Route::get('usersView', 'User\userController@view')->name('usersView');
+Route::resource('users', 'User\userController', ['except' => ['create', 'edit']]);
+Route::name('cambiar_contraseña')->post('users_change_password','Acceso\UserController@changePassword');

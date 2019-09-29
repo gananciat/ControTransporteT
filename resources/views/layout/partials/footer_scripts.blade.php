@@ -59,6 +59,7 @@
 <script src="{{asset('scripts/js/pagoMulta.js')}}"></script>
 <script src="{{asset('scripts/js/pago.js')}}"></script>
 <script src="{{asset('scripts/js/inspeccion.js')}}"></script>
+<script src="{{asset('scripts/js/user.js')}}"></script>
 
 <!-- scripts  services-->
 <script src="{{asset('scripts/services/TipoPersonaService.js')}}"></script>
@@ -76,13 +77,14 @@
 <script src="{{asset('scripts/services/LineaService.js')}}"></script>
 <script src="{{asset('scripts/services/PropietarioLineaService.js')}}"></script>
 <script src="{{asset('scripts/services/LineaChoferService.js')}}"></script>
-<script src="{{asset('scripts/services/transporteService.js')}}"></script>
+<script src="{{asset('scripts/services/TransporteService.js')}}"></script>
 <script src="{{asset('scripts/services/MontoMultaService.js')}}"></script>
 <script src="{{asset('scripts/services/TipoMultaService.js')}}"></script>
 <script src="{{asset('scripts/services/CausaService.js')}}"></script>
 <script src="{{asset('scripts/services/MultaService.js')}}"></script>
-<script src="{{asset('scripts/services/pagoService.js')}}"></script>
-<script src="{{asset('scripts/services/inspeccionService.js')}}"></script>
+<script src="{{asset('scripts/services/PagoService.js')}}"></script>
+<script src="{{asset('scripts/services/InspeccionService.js')}}"></script>
+<script src="{{asset('scripts/services/UserService.js')}}"></script>
 
 <script>
 	$(document).ready(function () {

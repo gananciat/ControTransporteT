@@ -71,7 +71,7 @@ model.lineaChoferController = {
         var data = self.lineaChofer;
         var dataParams = ko.toJS(data);
 
-        if(self.validateExistencia(dataParams.chofer_id)){
+        if(self.validateExistencia(dataParams.chofer_id, dataParams.tipo_chofer)){
             toastr.error("piloto seleccionado ya esa designado a linea",'return');
             return;
         }
@@ -87,11 +87,11 @@ model.lineaChoferController = {
         });
     },
 
-    validateExistencia(chofer_id){
+    validateExistencia(chofer_id, tipo){
         let self = this;
         var existe= false;
         self.lineaChofers().forEach(function(item){
-            if(item.chofer_id === chofer_id && item.actual){
+            if(item.chofer_id === chofer_id && item.actual && item.tipo_chofer === tipo){
                 existe = true;
             }
         });

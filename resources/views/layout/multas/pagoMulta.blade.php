@@ -117,6 +117,7 @@
 									<ul>
 										<li><label class="text-info">Dpi: </label> <span data-bind="text: model.pagoMultaController.pagoMulta.dpi_piloto()"></span></li>
 										<li><label class="text-info">Piloto: </label> <span data-bind="text: model.pagoMultaController.pagoMulta.piloto()"></span></li>
+										<li><label class="text-info">Licencia: </label> <span data-bind="text: model.pagoMultaController.pagoMulta.licencia()"></span></li>
 										<li><label class="text-info">Linea: </label> <span data-bind="text: model.pagoMultaController.pagoMulta.linea()"></span></li>
 									</ul>
 								</div>

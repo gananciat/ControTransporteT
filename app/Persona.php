@@ -24,7 +24,8 @@ class Persona extends Model
     	'fecha_nac',
     	'tipo_persona_id',
         'foto',
-        'direccion'
+        'direccion',
+        'licencia'
     ];
 
     public function telefonos()

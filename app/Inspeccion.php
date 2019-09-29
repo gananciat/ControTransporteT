@@ -54,5 +54,4 @@ class Inspeccion extends Model
     {
     	return $this->hasMany(InspeccionMulta::class,'inspeccion_id');
     }
-
 }

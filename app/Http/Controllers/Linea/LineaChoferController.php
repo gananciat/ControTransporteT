@@ -35,9 +35,17 @@ class LineaChoferController extends ApiController
         $data = $request->all();
 
         $lineaChofers = LineaChofer::where('linea_id',$request->linea_id)
-        						   ->where('tipo_chofer', $request->tipo_chofer)->get();
+                                   ->where('tipo_chofer',$request->tipo_chofer)->get();
+
+        $lineaChoferTipo = LineaChofer::where('linea_id',$request->linea_id)
+                                       ->where('chofer_id',$request->chofer_id)->get();
 
         foreach ($lineaChofers as $prop) {
+            $prop->actual = false;
+            $prop->save();
+        }
+
+        foreach ($lineaChoferTipo as $prop) {
             $prop->actual = false;
             $prop->save();
         }

@@ -16,7 +16,8 @@ model.personaController = {
         telefonos: ko.observableArray([]),
         image_file: ko.observable(""),
         tipo_persona_id: ko.observable(null),
-        marca_transporte_id: ko.observable(null)
+        marca_transporte_id: ko.observable(null),
+        licencia: ko.observable("")
     },
 
     personas: ko.observableArray([]),
@@ -45,6 +46,7 @@ model.personaController = {
         form.foto(data.foto);
         form.fecha_nac(data.fecha_nac);
         form.tipo_persona_id(data.tipo_persona_id);
+        form.licencia(data.licencia);
     },
 
   //nuevo registro, limpiar datos del formulario
@@ -219,6 +221,10 @@ model.personaController = {
     addTelefono(){
         let self = model.personaController;
         var numero = self.persona.telefono();
+        if(numero === ''){
+            toastr.error('escriba numero de telefono','error');
+            return;
+        }
         self.persona.telefonos.push({telefono: numero});
         self.persona.telefono("")
     },

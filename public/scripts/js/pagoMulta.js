@@ -17,6 +17,7 @@ model.pagoMultaController = {
         no_chasis: ko.observable(""),
         no_motor: ko.observable(""),
         piloto: ko.observable(""),
+        licencia: ko.observable(""),
         dpi_piloto: ko.observable(""),
         linea: ko.observable(""),
         agente: ko.observable(""),
@@ -55,6 +56,7 @@ model.pagoMultaController = {
         form.no_motor(data.transporte.no_motor);
         form.porcentaje_descuento(data.causa.monto.porcentaje_descuento);
         form.tarjeta_circulacion(data.transporte.no_tarjeta);
+        form.licencia(data.linea_chofer.chofer.licencia);
 
         if(data.inspeccion_multa !== null){
             form.no_inspeccion(data.inspeccion_multa.inspeccion.numero);

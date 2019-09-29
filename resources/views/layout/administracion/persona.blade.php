@@ -82,7 +82,7 @@
 						                    <label for="text2">Cui</label>
 						                        <input type="text" id="cui" name="cui" placeholder="ingrese cui" class="form-control"data-bind="value: cui"
 							                           data-error=".errorcui"
-							                           minlength="3" maxlength="25" required>
+							                           minlength="13" maxlength="15" required>
 							                    <span class="errorcui text-danger help-inline"></span>
 						                    </div>
 							            	<div class="col-lg-4 col-md-4 col-sm6">
@@ -119,12 +119,20 @@
 							                    <span class="errorFecha text-danger help-inline"></span>
 						                    </div>
 
-						                    <div class="col-lg-8 col-md-8 col-sm-12">
+						                    <div class="col-lg-4 col-md-4 col-sm-12">
 						                    <label for="text2">Correo</label>
 						                        <input type="email" id="email" name="cui" placeholder="ingrese correo" class="form-control"data-bind="value: email"
 							                           data-error=".errorEmail"
 							                           minlength="3" maxlength="25" required>
 							                    <span class="errorEmail text-danger help-inline"></span>
+						                    </div>
+
+						                    <div class="col-lg-4 col-md-4 col-sm-12">
+						                    <label for="text2">Licencia</label>
+						                        <input type="number" id="licencia" name="licencia" placeholder="ingrese licencia" class="form-control"data-bind="value: licencia"
+							                           data-error=".errorLicencia"
+							                           minlength="8" maxlength="25">
+							                    <span class="errorLicencia text-danger help-inline"></span>
 						                    </div>
 
 						                    <div class="col-lg-8 col-md-8 col-sm6">

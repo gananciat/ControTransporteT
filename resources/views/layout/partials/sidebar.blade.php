@@ -187,7 +187,7 @@
                 </ul>
                 <ul class="collapse">
                   <li>
-                    <a href="{{ route('tipoUsuariosView') }}">
+                    <a href="{{ route('usersView') }}">
                       <i class="fa fa-angle-right"></i>&nbsp; Usuarios</a>
                   </li>
                 </ul>

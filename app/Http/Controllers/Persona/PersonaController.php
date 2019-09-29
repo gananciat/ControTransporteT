@@ -97,6 +97,7 @@ class PersonaController extends ApiController
             $persona->apellido_dos = $request->apellido_dos;
             $persona->direccion = $request->direccion;
             $persona->fecha_nac = $request->fecha_nac;
+            $persona->licencia = $request->licencia;
 
             if($request->image_file != null || $request->image_file != ''){
                 $imagePath = '';
