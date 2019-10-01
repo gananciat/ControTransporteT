@@ -5,10 +5,12 @@ namespace App;
 use App\MontoMulta;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use OwenIt\Auditing\Contracts\Auditable;
 
-class Causa extends Model
+class Causa extends Model implements Auditable
 {
     use SoftDeletes;
+    use \OwenIt\Auditing\Auditable;
     
     protected $table = 'causas';
     protected $fillable= [

@@ -5,11 +5,13 @@ namespace App;
 use App\Anio;
 use App\Persona;
 use Illuminate\Database\Eloquent\Model;
+use OwenIt\Auditing\Contracts\Auditable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Expediente extends Model
+class Expediente extends Model implements Auditable
 {
     use SoftDeletes;
+    use \OwenIt\Auditing\Auditable;
 
     protected $table="expedientes";
 

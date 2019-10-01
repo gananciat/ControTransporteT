@@ -77,7 +77,9 @@
                                         <td data-bind="text: formatCurrency(parseFloat(total).toFixed(2))"></td>
                                         <td><span class="label" data-bind="text: (anulado ? 'Anulado' : 'Cancelado'), css: (anulado ? 'label-danger' : 'label-success')"></span></td>
                                         <td width="10%">
+                                        	@if(Auth::user()->tipo_usuario->nombre == "administrador")
                                             <a href="#" class="btn btn-danger btn-xs" data-bind="visible: !anulado, click: model.pagoController.anular" data-toggle="tooltip" title="anular"><i class="fa fa-ban"></i></a>
+                                            @endif
                                         </td>
                                     </tr>
 
@@ -90,11 +92,20 @@
 			</div>
 			<div class="row" data-bind="visible: model.pagoController.insertMode()">
 				<div class="col-lg-12 col-md-12 col-sm-12">
+					<br />
+			    	<div class="row">
+			    		<div class="form-group col-lg-12">
+			                <div class="text-right">
+			                    <span><a class="text-danger" href="javascript:;"><i data-bind="click: model.pagoController.volver" class="fa fa-undo"> volver</i></a></span>
+			                </div>
+			    		</div>
+			    	</div>
 				    <div class="box dark">
 				        <header>
 				            <h5> Pagos <span data-bind="text: model.pagoController.pago.propietario()"></span></h5>           <!-- /.toolbar -->
 				        </header>
 				        <div class="body">
+				        	@if(Auth::user()->tipo_usuario->nombre == "administrador")
 				            <form id="pagoForm" class="form-horizontal" data-bind="with: model.pagoController.pago">
 
 				            	<div class="form-group row">
@@ -144,6 +155,7 @@
 				                </div>
 
 				            </form>
+				            @endif
 
 				            <div id="tablePagosPropieta" class="body table-responsive">
 			                <table id="tablePagosPropietarios" class="table table-bordered table-condensed table-hover table-striped">
@@ -168,7 +180,9 @@
                                         <td data-bind="text: formatCurrency(parseFloat(total).toFixed(2))"></td>
                                         <td><span class="label" data-bind="text: (anulado ? 'Anulado' : 'Cancelado'), css: (anulado ? 'label-danger' : 'label-success')"></span></td>
                                         <td width="10%">
+                                        	@if(Auth::user()->tipo_usuario->nombre == "administrador")
                                             <a href="#" class="btn btn-danger btn-xs" data-bind="visible: !anulado, click: model.pagoController.anular" data-toggle="tooltip" title="anular"><i class="fa fa-ban"></i></a>
+                                            @endif
                                         </td>
                                     </tr>
 

@@ -9,11 +9,13 @@ use App\Transporte;
 use App\LineaChofer;
 use App\InspeccionMulta;
 use Illuminate\Database\Eloquent\Model;
+use OwenIt\Auditing\Contracts\Auditable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Multa extends Model
+class Multa extends Model implements Auditable
 {
     use SoftDeletes;
+    use \OwenIt\Auditing\Auditable;
     
     protected $table = 'multas';
 

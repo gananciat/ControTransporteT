@@ -14,6 +14,7 @@ class ExpedienteController extends ApiController
     public function __construct()
     {
         parent::__construct(); //proteje las rutas
+        $this->middleware('admin')->except(['index']);
     }
 
     //lista todos los registros de la tabla

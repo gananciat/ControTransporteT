@@ -37,18 +37,21 @@
                   <span class="link-title">Administracion</span>
                   <span class="fa arrow"></span>
                 </a>
+                @if(Auth::user()->tipo_usuario->nombre == "administrador")
                 <ul class="collapse">
                   <li>
                     <a href="{{ route('tipoPersonasView') }}">
                       <i class="fa fa-angle-right"></i>&nbsp; Tipo Personas</a>
                   </li>
                 </ul>
+                @endif
                 <ul class="collapse">
                   <li>
                     <a href="{{ route('personasView') }}">
                       <i class="fa fa-angle-right"></i>&nbsp; Personas</a>
                   </li>
                 </ul>
+                @if(Auth::user()->tipo_usuario->nombre == "administrador")
                 <ul class="collapse">
                   <li>
                     <a href="{{ route('ubicacionesView') }}">
@@ -61,6 +64,7 @@
                       <i class="fa fa-angle-right"></i>&nbsp; Destinos</a>
                   </li>
                 </ul>
+                @endif
               </li>
               <li class="">
                 <a href="javascript:;">
@@ -68,12 +72,14 @@
                   <span class="link-title">Configuración Anual</span>
                   <span class="fa arrow"></span>
                 </a>
+                @if(Auth::user()->tipo_usuario->nombre == "administrador")
                 <ul class="collapse">
                   <li>
                     <a href="{{ route('conceptoPagosView') }}">
                       <i class="fa fa-angle-right"></i>&nbsp; Concepto de Pagos</a>
                   </li>
                 </ul>
+                @endif
                 <ul class="collapse">
                   <li>
                     <a href="{{ route('aniosView') }}">
@@ -87,6 +93,7 @@
                   <span class="link-title">Transportes</span>
                   <span class="fa arrow"></span>
                 </a>
+                @if(Auth::user()->tipo_usuario->nombre == "administrador")
                 <ul class="collapse">
                   <li>
                     <a href="{{ route('marcaTransportesView') }}">
@@ -99,6 +106,7 @@
                       <i class="fa fa-angle-right"></i>&nbsp; Tipo transportes</a>
                   </li>
                 </ul>
+                @endif
                 <ul class="collapse">
                   <li>
                     <a href="{{ route('rutasView') }}">
@@ -130,6 +138,7 @@
                       <i class="fa fa-angle-right"></i>&nbsp; Montos</a>
                   </li>
                 </ul>
+                @if(Auth::user()->tipo_usuario->nombre == "administrador")
                 <ul class="collapse">
                   <li>
                     <a href="{{ route('tipoMultasView') }}">
@@ -142,12 +151,15 @@
                       <i class="fa fa-angle-right"></i>&nbsp; Motivos o causas</a>
                   </li>
                 </ul>
+                @endif
+                @if(Auth::user()->tipo_usuario->nombre == "administrador")
                 <ul class="collapse">
                   <li>
                     <a href="{{ route('multasView') }}">
                       <i class="fa fa-angle-right"></i>&nbsp; Ingresar multas</a>
                   </li>
                 </ul>
+                @endif
                 <ul class="collapse">
                   <li>
                     <a href="{{ route('pagoMultasView') }}">
@@ -179,6 +191,7 @@
                   <span class="link-title">Acceso</span>
                   <span class="fa arrow"></span>
                 </a>
+                @if(Auth::user()->tipo_usuario->nombre == "administrador")
                 <ul class="collapse">
                   <li>
                     <a href="{{ route('tipoUsuariosView') }}">
@@ -189,6 +202,13 @@
                   <li>
                     <a href="{{ route('usersView') }}">
                       <i class="fa fa-angle-right"></i>&nbsp; Usuarios</a>
+                  </li>
+                </ul>
+                @endif
+                <ul class="collapse">
+                  <li>
+                    <a href="{{ route('cambiarContrasenaView') }}">
+                      <i class="fa fa-angle-right"></i>&nbsp; Cambiar contraseña</a>
                   </li>
                 </ul>
               </li>

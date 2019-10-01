@@ -180,6 +180,13 @@ model.pagoController = {
         self.initialize()
     },
 
+    volver: function(){
+        let self = model.pagoController;
+        self.insertMode(false);
+        self.editMode(false);
+        self.gridMode(true)
+    },
+
     getPropietarios: function(){
         let self = model.pagoController;
          //llamada al servicio

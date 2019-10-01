@@ -12,6 +12,7 @@ class PagoController extends ApiController
    public function __construct()
     {
         parent::__construct();
+        $this->middleware('admin')->except(['index','view']);
     }
 
     public function view()

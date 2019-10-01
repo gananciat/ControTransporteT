@@ -10,7 +10,7 @@
 			    	<div class="row">
 			    		<div class="form-group col-lg-12">
 			                <div class="text-right">
-			                    <span><a class="text-danger" href="javascript{0}"><i data-bind="click: model.inspeccionController.cancelar" class="fa fa-undo"> volver</i></a></span>
+			                    <span><a class="text-danger" href="javascript:;"><i data-bind="click: model.inspeccionController.cancelar" class="fa fa-undo"> volver</i></a></span>
 			                </div>
 			    		</div>
 			    	</div>
@@ -301,7 +301,10 @@
 			        <div class="box">
 			            <header>
 			                <div class="icons"><i class="fa fa-table"></i></div>
-			                <h4 class="title">&nbsp; inspecciones <button class="text-right btn btn-success btn-sm" data-bind="click: model.inspeccionController.nuevo"> <i class="fa fa-plus-square-o"></i> Nuevo</button></h4>
+			                <h4 class="title">&nbsp; inspecciones 
+			                	@if(Auth::user()->tipo_usuario->nombre == "administrador")
+			                	<button class="text-right btn btn-success btn-sm" data-bind="click: model.inspeccionController.nuevo"> <i class="fa fa-plus-square-o"></i> Nuevo</button>
+			                @endif</h4>
 			            </header>
 			            <div id="collapse4" class="body">
 			                <table id="dataTable" class="table table-bordered table-condensed table-hover table-striped">
@@ -325,7 +328,9 @@
                                         <td data-bind="text: agente.nombre_uno+' '+agente.apellido_uno"></td>
                                         <td width="10%">
 											<a href="#" class="btn btn-primary btn-xs" data-bind="click: model.inspeccionController.view" data-toggle="tooltip" title="información"><i class="fa fa-eye"></i></a>
+											@if(Auth::user()->tipo_usuario->nombre == "administrador")
                                             <a href="#" class="btn btn-danger btn-xs" data-bind="click: model.inspeccionController.destroy" data-toggle="tooltip" title="eliminar"><i class="fa fa-trash-o"></i></a>
+                                            @endif
                                         </td>
                                     </tr>
 

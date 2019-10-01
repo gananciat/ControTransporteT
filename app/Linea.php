@@ -7,11 +7,14 @@ use App\LineaChofer;
 use App\TipoTransporte;
 use App\PropietarioLinea;
 use Illuminate\Database\Eloquent\Model;
+use OwenIt\Auditing\Contracts\Auditable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Linea extends Model
+class Linea extends Model implements Auditable
 {
 	use SoftDeletes;
+    use \OwenIt\Auditing\Auditable;
+
     protected $table='lineas';
 
     protected $fillable = ['no_linea','ruta_id','tipo_transporte_id'];

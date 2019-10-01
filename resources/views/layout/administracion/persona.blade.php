@@ -20,7 +20,11 @@
 			        <div class="box" data-bind="visible: model.personaController.selectTipo()">
 			            <header>
 			                <div class="icons"><i class="fa fa-table"></i></div>
-			                <h4 class="title">&nbsp; <span data-bind="text: model.personaController.persona_name"></span> <button class="text-right btn btn-success btn-sm" data-bind="click: model.personaController.nuevo"> <i class="fa fa-plus-square-o"></i> Nuevo</button></h4>
+			                <h4 class="title">&nbsp; <span data-bind="text: model.personaController.persona_name"></span> 
+			                	@if(Auth::user()->tipo_usuario->nombre == "administrador")
+			                	<button class="text-right btn btn-success btn-sm" data-bind="click: model.personaController.nuevo"> <i class="fa fa-plus-square-o"></i> Nuevo</button>
+			                   @endif
+			               </h4>
 			            </header>
 			            <div id="collapse4" class="body">
 			                <table id="dataTable" class="table table-bordered table-condensed table-hover table-striped">
@@ -45,9 +49,12 @@
                                         		<a href="#" class="btn btn-success btn-xs"  data-bind="click: model.personaController.initializeExpediente" data-toggle="modal" data-target="#expediente"><i class="fa fa-file"></i> expediente</a>
                                         	</span>
 
+                                        	@if(Auth::user()->tipo_usuario->nombre == "administrador")
+
                                             <a href="#" class="btn btn-warning btn-xs" data-bind="click: model.personaController.editar" data-toggle="tooltip" title="editar"><i class="fa fa-pencil-square-o"></i></a>
 
                                             <a href="#" class="btn btn-danger btn-xs" data-bind="click: model.personaController.destroy" data-toggle="tooltip" title="eliminar"><i class="fa fa-trash-o"></i></a>
+                                            @endif
                                         </td>
                                     </tr>
 
@@ -191,6 +198,7 @@
       </div>
       <div class="modal-body">
         <div class="panel-body table-responsive" id="listadoExpedientes">
+        	@if(Auth::user()->tipo_usuario->nombre == "administrador")
         	<div>
         		<form id="form_exp" class="form-horizontal" data-bind="with: model.expedienteController.expediente">
         			<div class="col-lg-12">
@@ -222,6 +230,7 @@
                 </div>
         		</form>
         	</div>
+        	@endif
           <div id="tbl_expediente" class="body">
             <table id="dataTableExpediente" class="table table-bordered table-condensed table-hover table-striped">
                <thead>
@@ -237,8 +246,10 @@
                     <tr>
                         <td data-bind="text: anio.anio"></td>
                         <td width="15%">
+                        	@if(Auth::user()->tipo_usuario->nombre == "administrador")
                         	<a target="_blank" class="btn btn-primary btn-xs" data-bind="attr: { href: '/documentos/'+expediente }"> <i class="fa fa-print"></i> </a>
                             <a href="#" class="btn btn-danger btn-xs" data-bind="click: model.expedienteController.destroy" data-toggle="tooltip" title="eliminar"><i class="fa fa-trash-o"></i></a>
+                            @endif
                         </td>
                     </tr>
 

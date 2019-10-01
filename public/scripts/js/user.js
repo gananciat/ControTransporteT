@@ -7,7 +7,8 @@ model.userController = {
         tipo_usuario_id: ko.observable(null),
         email: ko.observable(""),
         password: ko.observable(""),
-        password_confirmation: ko.observable("")
+        password_confirmation: ko.observable(""),
+        old_password: ko.observable("")
     },
 
     users: ko.observableArray([]),
@@ -184,7 +185,12 @@ model.userController = {
         //llamada al servicio
         personaService.getAll()
         .then(r => {
-            self.personas(r.data);
+            self.personas([]);
+            r.data.forEach(function(item){
+                if(item.tipo_persona.nombre.substring(0,11).toLowerCase() !== 'propietario' && item.tipo_persona.nombre.substring(0,6).toLowerCase() !== 'piloto'){
+                    self.personas.push(item);
+                }  
+            })
         })
         .catch(r => {});
     },
@@ -207,7 +213,39 @@ model.userController = {
 
         self.getTipoUsuarios();
         self.getPersonas();
-    }
+    },
+
+    cambiar: function(){
+        let self = model.userController;
+        var validator = $("#changeForm").validate({
+            rules: {
+                password: "required",
+                password_confirmation: {
+                    equalTo: "#password"
+                }
+            },
+            messages: {
+                password: "la contraseña es obligatoria",
+                confirmpassword: " Las contraseñas no coinciden"
+            }
+        });
+
+
+        if (!validator.form()) {
+            return
+        }
+
+        var data = self.user;
+        var dataParams = ko.toJS(data);
+        userService.cambiarContraseña(dataParams)
+        .then(r => {
+            toastr.info('contraseña modificada con éxito','exito')
+            self.clearData();
+        })
+        .catch(r => {
+            toastr.error(r.response.data.error)
+        });
+    },
 };
 
 model.userController.user.persona_id.subscribe(function (value){

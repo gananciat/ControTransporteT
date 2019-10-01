@@ -9,7 +9,10 @@
 			        <div class="box">
 			            <header>
 			                <div class="icons"><i class="fa fa-table"></i></div>
-			                <h4 class="title">&nbsp; Lineas <button class="text-right btn btn-success btn-sm" data-bind="click: model.lineaController.nuevo"> <i class="fa fa-plus-square-o"></i> Nuevo</button></h4>
+			                <h4 class="title">&nbsp; Lineas 
+			                	@if(Auth::user()->tipo_usuario->nombre == "administrador")
+			                	<button class="text-right btn btn-success btn-sm" data-bind="click: model.lineaController.nuevo"> <i class="fa fa-plus-square-o"></i> Nuevo</button></h4>
+			                	@endif
 			            </header>
 			            <div id="collapse4" class="body">
 			                <table id="dataTable" class="table table-bordered table-condensed table-hover table-striped">
@@ -36,15 +39,16 @@
                                         </td>
                                         <td data-bind="text: ruta.ubicacion.nombre+'-'+ruta.destino.nombre"></td>
                                         <td width="35%">
-                                        	<span data-original-title="cambiar propietario" data-toggle="tooltip">
+                                        	<span data-original-title="ver propietario" data-toggle="tooltip">
                                         		<a href="#" class="btn btn-warning btn-xs"  data-bind="click: model.lineaController.initializePropietario" data-toggle="modal" data-target="#propietario"><i class="fa fa-file"></i> propietario</a>
                                         	</span>
 
-                                        	<span data-original-title="cambiar pilotos" data-toggle="tooltip">
+                                        	<span data-original-title="ver pilotos" data-toggle="tooltip">
                                         		<a href="#" class="btn btn-success btn-xs"  data-bind="click: model.lineaController.initializeChofer" data-toggle="modal" data-target="#piloto"><i class="fa fa-user"></i> pilotos</a>
                                         	</span>
-
+                                        	@if(Auth::user()->tipo_usuario->nombre == "administrador")
                                             <a href="#" class="btn btn-danger btn-xs" data-bind="click: model.lineaController.destroy" data-toggle="tooltip" title="eliminar"><i class="fa fa-trash-o"></i></a>
+                                            @endif
                                         </td>
                                     </tr>
 
@@ -251,6 +255,7 @@
 	      </div>
 	      <div class="modal-body">
 	        <div class="panel-body table-responsive" id="liestadoPropietarios">
+	        	@if(Auth::user()->tipo_usuario->nombre == "administrador")
 	        	<div>
 					<form id="propietarioLineaForm" class="form-horizontal" data-bind="with: model.propietarioLineaController.propietarioLinea">
         			<div class="col-lg-12">
@@ -273,6 +278,7 @@
                 </div>
         		</form>
 	        	</div>
+	        	@endif
 	          <div id="tbl_propietarios" class="body">
 	            <table id="dataTablePropietario" class="table table-bordered table-condensed table-hover table-striped">
 	               <thead>
@@ -292,7 +298,9 @@
 	                        <td data-bind="text: propietario.nombre_uno+' '+propietario.apellido_uno"></td>
 	                    	<td><span class="label" data-bind="text: (actual === 1 ? 'Activo' : 'Inactivo'), css: (actual === 1 ? 'label-primary' : 'label-danger')"></span></td>
 	                        <td width="15%">
+	                        	@if(Auth::user()->tipo_usuario->nombre == "administrador")
 	                            <a  href="#" class="btn btn-danger btn-xs" data-bind="click: model.propietarioLineaController.destroy, visible: actual === 1" data-toggle="tooltip" title="eliminar"><i class="fa fa-trash-o"></i></a>
+	                            @endif
 	                        </td>
 	                    </tr>
 
@@ -315,6 +323,7 @@
 	      </div>
 	      <div class="modal-body">
 	        <div class="panel-body table-responsive" id="liestadoPropietarios">
+	        	@if(Auth::user()->tipo_usuario->nombre == "administrador")
 	        	<div>
 					<form id="lineaChoferForm" class="form-horizontal" data-bind="with: model.lineaChoferController.lineaChofer">
         			<div class="form-group row">
@@ -347,6 +356,7 @@
 	                	</div>
         		</form>
 	        	</div>
+	        	@endif
 	          <div id="tbl_Pilotos" class="body">
 	            <table id="dataTablePilotos" class="table table-bordered table-condensed table-hover table-striped">
 	               <thead>
@@ -368,7 +378,9 @@
 	                        <td><span class="label" data-bind="text: (tipo_chofer === 'T' ? 'Titular' : 'Suplente'), css: (tipo_chofer === 'T' ? 'label-success' : 'label-warning')"></span></td>
 	                    	<td><span class="label" data-bind="text: (actual === 1 ? 'Activo' : 'Inactivo'), css: (actual === 1 ? 'label-primary' : 'label-danger')"></span></td>
 	                        <td width="15%">
+	                        	@if(Auth::user()->tipo_usuario->nombre == "administrador")
 	                            <a  href="#" class="btn btn-danger btn-xs" data-bind="click: model.lineaChoferController.destroy, visible: actual === 1" data-toggle="tooltip" title="eliminar"><i class="fa fa-trash-o"></i></a>
+	                            @endif
 	                        </td>
 	                    </tr>
 

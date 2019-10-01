@@ -16,12 +16,18 @@ class UserController extends ApiController
    public function __construct()
     {
         parent::__construct();//retornar registro por id
+        $this->middleware('admin')->except('viewCambiarContraseña','changePassword');
     }
 
     //retorna vista principal del index
     public function view()
     {
        return view('layout.acceso.user');
+    }
+
+    public function viewCambiarContraseña()
+    {
+       return view('layout.acceso.cambiarContrasena');
     }
 
     //retorna todos los registros de la tabla
@@ -94,7 +100,7 @@ class UserController extends ApiController
     //funcion para cambiar contraseña
     public function changePassword(Request $request)
     {
-        $user = User::find($request->id);
+        $user = auth()->user();
 
         $reglas = [
             'password' => 'required', 'string', 'min:6', 'confirmed',

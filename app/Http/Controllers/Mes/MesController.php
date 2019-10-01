@@ -12,6 +12,7 @@ class MesController extends ApiController
    public function __construct()
     {
         parent::__construct();
+        $this->middleware('admin');
     }
 
     public function view()

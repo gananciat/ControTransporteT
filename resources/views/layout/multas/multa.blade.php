@@ -49,6 +49,9 @@
                                         	<!-- ko if: deleted_at !== null -->
                                         	<span class="label label-danger"> anulada</span>
                                         	<!-- /ko -->
+                                        	<!-- ko if: fuera_de_tiempo === 1 -->
+                                        	<span class="label label-danger"> pago fuera de tiempo</span>
+                                        	<!-- /ko -->
                                           </td>
                                         <td width="10%">
                                         	<!-- ko if: deleted_at === null -->

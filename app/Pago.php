@@ -6,11 +6,14 @@ use App\Linea;
 use App\ConceptoPagoAnio;
 use App\PropietarioLinea;
 use Illuminate\Database\Eloquent\Model;
+use OwenIt\Auditing\Contracts\Auditable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Pago extends Model
+class Pago extends Model implements Auditable
 {
     use SoftDeletes;
+    use \OwenIt\Auditing\Auditable;
+
     protected $table='pagos';
 
     protected $fillable = ['propietario_linea_id','concepto_pago_anio_id','total','anulado'];

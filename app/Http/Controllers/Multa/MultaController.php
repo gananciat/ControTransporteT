@@ -12,11 +12,13 @@ class MultaController extends ApiController
     public function __construct()
     {
         parent::__construct();
+        $this->middleware('admin');
     }
 
     public function view()
     {
        return view('layout.multas.multa');
+       $this->middleware('admin')->except(['index','viewPagos']);
     }
 
     public function viewPagos()

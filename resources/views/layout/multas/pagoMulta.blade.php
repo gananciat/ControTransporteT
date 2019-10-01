@@ -58,12 +58,14 @@
                                         	<span class="label" data-bind="text: (pagado === 1 ? 'Cancelada' : 'Pendiente'), css: (pagado === 1 ? 'label-success' : 'label-danger')"></span>
                                           </td>
                                         <td width="10%">
+                                        	@if(Auth::user()->tipo_usuario->nombre == "administrador")
                                         	<!-- ko if: deleted_at === null && pagado === 0 -->
                                             <a href="#" class="btn btn-success btn-xs" data-bind=" click: model.pagoMultaController.editar" data-toggle="tooltip" title="cancelar multa"><i class="fa fa-money"></i></a>
                                         	<!-- /ko -->
                                         	<!-- ko if: deleted_at === null && pagado -->
                                             <a href="#" class="btn btn-warning btn-xs" data-bind=" click: model.pagoMultaController.revertir" data-toggle="tooltip" title="revertir pago"><i class="fa fa-undo"></i></a>
                                         	<!-- /ko -->
+                                        	@endif
                                         </td>
 
                                     </tr>

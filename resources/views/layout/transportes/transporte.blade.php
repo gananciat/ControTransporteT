@@ -9,7 +9,10 @@
 			        <div class="box">
 			            <header>
 			                <div class="icons"><i class="fa fa-table"></i></div>
-			                <h4 class="title">&nbsp; Transportes <button class="text-right btn btn-success btn-sm" data-bind="click: model.transporteController.nuevo"> <i class="fa fa-plus-square-o"></i> Nuevo</button></h4>
+			                <h4 class="title">&nbsp; Transportes 
+			                	@if(Auth::user()->tipo_usuario->nombre == "administrador")
+			                	<button class="text-right btn btn-success btn-sm" data-bind="click: model.transporteController.nuevo"> <i class="fa fa-plus-square-o"></i> Nuevo</button></h4>
+			                	@endif
 			            </header>
 			            <div id="collapse4" class="body">
 			                <table id="dataTable" class="table table-bordered table-condensed table-hover table-striped">
@@ -36,11 +39,13 @@
                                         <td data-bind="text: linea.propietario_actual.propietario.nombre_uno+' '+linea.propietario_actual.propietario.apellido_uno"></td>
                                         <td><span class="label" data-bind="text: (actual === 1 ? 'Activo' : 'Inactivo'), css: (actual === 1 ? 'label-success' : 'label-danger')"></span></td>
                                         <td width="10%">
+                                        	@if(Auth::user()->tipo_usuario->nombre == "administrador")
                                         	<span data-bind="if: actual === 1">
                                             <a href="#" class="btn btn-warning btn-xs" data-bind="click: model.transporteController.editar" data-toggle="tooltip" title="editar"><i class="fa fa-pencil-square-o"></i></a>
 
                                             <a href="#" class="btn btn-danger btn-xs" data-bind="click: model.transporteController.destroy" data-toggle="tooltip" title="eliminar"><i class="fa fa-trash-o"></i></a>
                                         	</span>
+                                        	@endif
                                         </td>
                                     </tr>
 

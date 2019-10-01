@@ -92,4 +92,6 @@ Route::resource('inspeccions', 'Inspeccion\InspeccionController', ['except' => [
 
 Route::get('usersView', 'User\userController@view')->name('usersView');
 Route::resource('users', 'User\userController', ['except' => ['create', 'edit']]);
-Route::name('cambiar_contraseña')->post('users_change_password','Acceso\UserController@changePassword');
+
+Route::get('cambiarContrasenaView', 'User\userController@viewCambiarContraseña')->name('cambiarContrasenaView');
+Route::name('cambiar_contraseña')->post('users_change_password','User\UserController@changePassword');

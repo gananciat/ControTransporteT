@@ -6,11 +6,13 @@ use App\Pago;
 use App\Linea;
 use App\Persona;
 use Illuminate\Database\Eloquent\Model;
+use OwenIt\Auditing\Contracts\Auditable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class PropietarioLinea extends Model
+class PropietarioLinea extends Model implements Auditable
 {
     use SoftDeletes;
+    use \OwenIt\Auditing\Auditable;
 
     protected $table='propietario_lineas';
 

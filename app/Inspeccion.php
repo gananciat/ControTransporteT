@@ -6,10 +6,12 @@ use App\Persona;
 use App\Transporte;
 use App\InspeccionMulta;
 use Illuminate\Database\Eloquent\Model;
+use OwenIt\Auditing\Contracts\Auditable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Inspeccion extends Model
+class Inspeccion extends Model implements Auditable
 {
+    use \OwenIt\Auditing\Auditable;
 
     protected $table = 'inspecciones';
     protected $fillable= [

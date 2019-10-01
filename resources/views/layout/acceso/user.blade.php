@@ -56,7 +56,7 @@
 				                <div class="form-group row">
 				                	<div class="col-lg-6 col-md-6 col-sm-6">
 				                    <label for="linea_chofer_id">Empleado</label>
-				                       <select class="form-control" id="causa_id" data-bind="options: model.userController.personas, optionsText: function(p) {return p.cui+' / '+p.nombre_uno+' '+p.apellido_uno}, 
+				                       <select class="form-control" id="causa_id" data-bind="options: model.userController.personas, optionsText: function(p) {return p.tipo_persona.nombre+' / '+p.nombre_uno+' '+p.apellido_uno}, 
 				                       optionsValue: 'id',
 				                       optionsCaption: '--seleccione empleado--',
 				                       value: persona_id" 

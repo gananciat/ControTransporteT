@@ -13,7 +13,11 @@ class TipoUsuarioSeeder extends Seeder
     public function run()
     {
         $data = new TipoUsuario();
-        $data->nombre = 'admin';
+        $data->nombre = 'administrador';
+        $data->save();
+
+        $data = new TipoUsuario();
+        $data->nombre = 'usuario comun';
         $data->save();
     }
 }

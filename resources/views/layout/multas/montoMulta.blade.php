@@ -9,7 +9,10 @@
 			        <div class="box">
 			            <header>
 			                <div class="icons"><i class="fa fa-table"></i></div>
-			                <h4 class="title">&nbsp; Monto de multas con descuento <button class="text-right btn btn-success btn-sm" data-bind="click: model.montoMultaController.nuevo"> <i class="fa fa-plus-square-o"></i> Nuevo</button></h4>
+			                <h4 class="title">&nbsp; Monto de multas con descuento 
+			                	@if(Auth::user()->tipo_usuario->nombre == "administrador")
+			                	<button class="text-right btn btn-success btn-sm" data-bind="click: model.montoMultaController.nuevo"> <i class="fa fa-plus-square-o"></i> Nuevo</button></h4>
+			                	@endif
 			            </header>
 			            <div id="collapse4" class="body">
 			                <table id="dataTable" class="table table-bordered table-condensed table-hover table-striped">
@@ -34,10 +37,11 @@
 
                                         <td width="15%">
                                         	<a href="#" class="btn btn-info btn-xs" data-bind="click: model.montoMultaController.setCausas" data-toggle="tooltip" title="ver información"><i class="fa fa-eye"></i></a>
-
+                                        	@if(Auth::user()->tipo_usuario->nombre == "administrador")
                                             <a href="#" class="btn btn-warning btn-xs" data-bind="click: model.montoMultaController.editar" data-toggle="tooltip" title="editar"><i class="fa fa-pencil-square-o"></i></a>
 
                                             <a href="#" class="btn btn-danger btn-xs" data-bind="click: model.montoMultaController.destroy" data-toggle="tooltip" title="eliminar"><i class="fa fa-trash-o"></i></a>
+                                            @endif
                                         </td>
                                     </tr>
 
