@@ -18,13 +18,13 @@
                 <div class="col-md-6"> 
                     <h1 class="box-title text-center" id="primer_multa"></h1>
                     <div class="chart-area">
-                        <canvas id="graficaprimermulta"></canvas>
+                        <canvas style="width:1000px !important; height:600px !important;" id="graficaprimermulta"></canvas>
                     </div>                        
                 </div> 
                 <div class="col-md-6"> 
                     <h1 class="box-title text-center" id="segunda_multa"></h1>
                     <div class="chart-area">
-                        <canvas id="graficasegundamulta"></canvas>
+                        <canvas style="width:1000px !important; height:600px !important;" id="graficasegundamulta"></canvas>
                     </div>                        
                 </div>      
                 <br>
