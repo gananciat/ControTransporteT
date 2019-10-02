@@ -82,7 +82,7 @@ class LineaController extends ApiController
             $linea_propietario = PropietarioLinea::create(
                 ['propietario_id' => $request->propietario_id,
                  'linea_id' => $linea->id
-                ],
+                ]
             );
 
             $chofer_actual = LineaChofer::where('chofer_id',$request->chofer_titular)->first();
@@ -95,7 +95,7 @@ class LineaController extends ApiController
             $linea_chofer_titutar = LineaChofer::create(
                 ['chofer_id' => $request->chofer_titular,
                 'linea_id' => $linea->id,
-                'tipo_chofer' => 'T'],
+                'tipo_chofer' => 'T']
             );
 
             if($request->chofer_suplente !== null){

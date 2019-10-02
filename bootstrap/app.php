@@ -16,7 +16,6 @@ $app = new Illuminate\Foundation\Application(
 );
 
 $app->register(OwenIt\Auditing\AuditingServiceProvider::class);
-
 /*
 |--------------------------------------------------------------------------
 | Bind Important Interfaces

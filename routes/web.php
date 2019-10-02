@@ -14,6 +14,11 @@
 Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/grafica/lineas', 'HomeController@lineas')->name('lineas');
+Route::get('/grafica/rutas', 'HomeController@rutas')->name('rutas');
+Route::get('/grafica/primer_tipo_pago', 'HomeController@primer_tipo_pago')->name('primer_tipo_pago');
+Route::get('/grafica/segundo_tipo_pago', 'HomeController@segundo_tipo_pago')->name('segundo_tipo_pago');
+Route::get('/grafica/pagos', 'HomeController@pagos')->name('pagos');
 
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
