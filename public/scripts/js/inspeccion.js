@@ -27,7 +27,6 @@ model.inspeccionController = {
         daños: ko.observable(""),
         observacion: ko.observable(""),
         multas: ko.observableArray([]),
-        applyMulta:ko.observable(false),
         causa_id:ko.observable(null),
         observacion_multa: ko.observable(''),
         total_a_pagar: ko.observable(null),
@@ -68,6 +67,7 @@ model.inspeccionController = {
     editMode: ko.observable(false),
     gridMode: ko.observable(true),
     viewInfo: ko.observable(false),
+    applyMulta:ko.observable(false),
 
 
     //mapear funcion para editar
@@ -140,6 +140,7 @@ model.inspeccionController = {
         });
 
         self.inspeccion.multas([]);
+        console.log(self.inspeccion);
     },
 
 

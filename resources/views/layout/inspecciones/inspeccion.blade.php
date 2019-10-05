@@ -449,6 +449,9 @@
 							                        <div>
 							                            <p class="bold">Reproductos de DVD: <input class="pull-right"type="checkbox" data-bind="checked: reproductor" /></p>
 							                        </div>
+							                        <div>
+							                            <p class="bold">Plumillas: <input class="pull-right"type="checkbox" data-bind="checked: plumillas" /></p>
+							                        </div>
 												</div>
 											</div>
 										</div>
@@ -493,9 +496,9 @@
 
 		                	<div class="col-lg-12 col-md-12 col-sm-12">
 		                		<div>
-		                            <p class="bold">Aplicar multas: <input type="checkbox" data-bind="checked: applyMulta" /></p>
+		                            <p class="bold">Aplicar multas: <input type="checkbox" data-bind="checked: model.inspeccionController.applyMulta" /></p>
 		                        </div> 
-							     <div class="form-group row" data-bind="visible: applyMulta">
+							     <div class="form-group row" data-bind="visible:  model.inspeccionController.applyMulta">
 								     <div class="col-lg-12">
 				                    <label for="text2">Causa</label>
 				                       <select class="form-control" id="causa" data-bind="options: model.inspeccionController.causas, optionsText: function(c) {return c.nombre},
@@ -525,7 +528,7 @@
 				                <div class="col-lg-4">
 			                    <label for="text2">Total a pagar</label>
 			                        <input type="number" id="total_a_pagar" name="total_a_pagar" class="form-control"data-bind="value: total_a_pagar"
-				                           data-error=".total_a_pagar" required>
+				                           data-error=".total_a_pagar" required readonly>
 				                    <span class="total_a_pagar text-danger help-inline"></span>
 			                    </div>
 			                    <div class="col-lg-12 col-md-12">
