@@ -14,11 +14,12 @@
 			            <div class="form-group text-center">
 				             	<div class="col-lg-12 col-md-12 col-sm-12">
 					            	<div class="btn-group" data-toggle="buttons" id="light-toggle">
-										<button id="showLinea" data-bind="click: function(data, event) { model.pagoController.showTable(true, data, event) }" class="btn btn-info btn-rect active"> <i class="fa fa-file"></i> Propietarios
-										</button>
-										<button id="showTransporte" data-bind="click: function(data, event) { model.pagoController.showTable(false, data, event) }" class="btn btn-success btn-rect active"><i class="fa fa-money"></i> Pagos
-										</button>
-				             	</div>
+												<button id="showLinea" data-bind="click: function(data, event) { model.pagoController.showTable(true, data, event) }" class="btn btn-info btn-rect active"> <i class="fa fa-file"></i> Propietarios
+												</button>
+												<button id="showTransporte" data-bind="click: function(data, event) { model.pagoController.showTable(false, data, event) }" class="btn btn-success btn-rect active"><i class="fa fa-money"></i> Pagos
+												</button>
+												 </div>
+												 <a href="{{ route('pagos') }}" class="btn btn-primary btn-rect active" target="_blank">Reporte de Pagos</a>
 				             </div>
 				        </div>
 				        <div data-bind="visible: model.pagoController.flag()">

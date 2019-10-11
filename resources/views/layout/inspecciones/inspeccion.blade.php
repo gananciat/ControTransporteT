@@ -303,7 +303,8 @@
 			                <div class="icons"><i class="fa fa-table"></i></div>
 			                <h4 class="title">&nbsp; inspecciones 
 			                	@if(Auth::user()->tipo_usuario->nombre == "administrador")
-			                	<button class="text-right btn btn-success btn-sm" data-bind="click: model.inspeccionController.nuevo"> <i class="fa fa-plus-square-o"></i> Nuevo</button>
+												<button class="text-right btn btn-success btn-sm" data-bind="click: model.inspeccionController.nuevo"> <i class="fa fa-plus-square-o"></i> Nuevo</button>
+												<a href="{{ route('inspecciones') }}" class="btn btn-primary btn-sm" target="_blank">Reporte de Inspecciones</a>
 			                @endif</h4>
 			            </header>
 			            <div id="collapse4" class="body">

@@ -9,7 +9,9 @@
 			        <div class="box">
 			            <header>
 			                <div class="icons"><i class="fa fa-table"></i></div>
-			                <h4 class="title">&nbsp; multas <button class="text-right btn btn-success btn-sm" data-bind="click: model.multaController.nuevo"> <i class="fa fa-plus-square-o"></i> Nuevo</button></h4>
+											<h4 class="title">&nbsp; multas <button class="text-right btn btn-success btn-sm" data-bind="click: model.multaController.nuevo"> <i class="fa fa-plus-square-o"></i> Nuevo</button>
+											<a href="{{ route('multas') }}" class="text-right btn btn-primary btn-sm" target="_blank">Reporte de Multas</a>
+											</h4>
 			            </header>
 			            <div id="collapse4" class="body table-responsive">
 			                <table id="dataTable" class="table table-responsive table-bordered table-condensed table-hover table-striped">

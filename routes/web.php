@@ -20,6 +20,12 @@ Route::get('/grafica/primer_tipo_pago', 'HomeController@primer_tipo_pago')->name
 Route::get('/grafica/segundo_tipo_pago', 'HomeController@segundo_tipo_pago')->name('segundo_tipo_pago');
 Route::get('/grafica/pagos', 'HomeController@pagos')->name('pagos');
 
+
+Route::get('/reporte/inspecciones', 'ReporteController@inspecciones')->name('inspecciones');
+Route::get('/reporte/pagos', 'ReporteController@pagos')->name('pagos');
+Route::get('/reporte/multas', 'ReporteController@multas')->name('multas');
+
+
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Route::get('tipoPersonasView', 'TipoPersona\TipoPersonaController@view')->name('tipoPersonasView');
