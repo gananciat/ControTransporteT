@@ -129,7 +129,7 @@
                       <td style="text-align:center;"><img src="img/error.jpg" width="20px" height="18px" alt=""></td>                  
                     @endif
                     <td>Radio-Tocacintas-Cd's</td>
-                    @if($inspeccion->total_llantas == 1)
+                    @if($inspeccion->radio == 1)
                       <td style="text-align:center;"><img src="img/check.jpg" width="20px" height="18px" alt=""></td>
                     @else
                       <td style="text-align:center;"><img src="img/error.jpg" width="20px" height="18px" alt=""></td>                  
@@ -137,13 +137,13 @@
                   </tr>      
                   <tr>
                     <td>Platos</td>
-                    @if($inspeccion->total_llantas == 1)
+                    @if($inspeccion->platos == 1)
                       <td style="text-align:center;"><img src="img/check.jpg" width="20px" height="18px" alt=""></td>
                     @else
                       <td style="text-align:center;"><img src="img/error.jpg" width="20px" height="18px" alt=""></td>                  
                     @endif
                     <td>Bocinas de radio</td>
-                    @if($inspeccion->total_llantas == 1)
+                    @if($inspeccion->bocinas_radio == 1)
                       <td style="text-align:center;"><img src="img/check.jpg" width="20px" height="18px" alt=""></td>
                     @else
                       <td style="text-align:center;"><img src="img/error.jpg" width="20px" height="18px" alt=""></td>                  
@@ -151,13 +151,13 @@
                   </tr>  
                   <tr>
                     <td>Retrovisores</td>
-                    @if($inspeccion->total_llantas == 1)
+                    @if($inspeccion->retrovisores == 1)
                       <td style="text-align:center;"><img src="img/check.jpg" width="20px" height="18px" alt=""></td>
                     @else
                       <td style="text-align:center;"><img src="img/error.jpg" width="20px" height="18px" alt=""></td>                  
                     @endif
                     <td>Vidrios</td>
-                    @if($inspeccion->total_llantas == 1)
+                    @if($inspeccion->vidrios == 1)
                       <td style="text-align:center;"><img src="img/check.jpg" width="20px" height="18px" alt=""></td>
                     @else
                       <td style="text-align:center;"><img src="img/error.jpg" width="20px" height="18px" alt=""></td>                  
@@ -165,13 +165,13 @@
                   </tr>  
                   <tr>
                     <td>Antenas</td>
-                    @if($inspeccion->total_llantas == 1)
+                    @if($inspeccion->antena == 1)
                       <td style="text-align:center;"><img src="img/check.jpg" width="20px" height="18px" alt=""></td>
                     @else
                       <td style="text-align:center;"><img src="img/error.jpg" width="20px" height="18px" alt=""></td>                  
                     @endif
                     <td>Tapon de conbustible</td>
-                    @if($inspeccion->total_llantas == 1)
+                    @if($inspeccion->tapon_conbustible == 1)
                       <td style="text-align:center;"><img src="img/check.jpg" width="20px" height="18px" alt=""></td>
                     @else
                       <td style="text-align:center;"><img src="img/error.jpg" width="20px" height="18px" alt=""></td>                  
@@ -179,13 +179,13 @@
                   </tr>   
                   <tr>
                     <td>Silvines</td>
-                    @if($inspeccion->total_llantas == 1)
+                    @if($inspeccion->silvines == 1)
                       <td style="text-align:center;"><img src="img/check.jpg" width="20px" height="18px" alt=""></td>
                     @else
                       <td style="text-align:center;"><img src="img/error.jpg" width="20px" height="18px" alt=""></td>                  
                     @endif
                     <td>Tapón de radiador</td>
-                    @if($inspeccion->total_llantas == 1)
+                    @if($inspeccion->tapon_radiadior == 1)
                       <td style="text-align:center;"><img src="img/check.jpg" width="20px" height="18px" alt=""></td>
                     @else
                       <td style="text-align:center;"><img src="img/error.jpg" width="20px" height="18px" alt=""></td>                  
@@ -193,13 +193,13 @@
                   </tr>  
                   <tr>
                     <td>Stops</td>
-                    @if($inspeccion->total_llantas == 1)
+                    @if($inspeccion->stops == 1)
                       <td style="text-align:center;"><img src="img/check.jpg" width="20px" height="18px" alt=""></td>
                     @else
                       <td style="text-align:center;"><img src="img/error.jpg" width="20px" height="18px" alt=""></td>                  
                     @endif
                     <td>Plumillas</td>
-                    @if($inspeccion->total_llantas == 1)
+                    @if($inspeccion->plumillas == 1)
                       <td style="text-align:center;"><img src="img/check.jpg" width="20px" height="18px" alt=""></td>
                     @else
                       <td style="text-align:center;"><img src="img/error.jpg" width="20px" height="18px" alt=""></td>                  
@@ -207,13 +207,13 @@
                   </tr> 
                   <tr>
                     <td>Tricket</td>
-                    @if($inspeccion->total_llantas == 1)
+                    @if($inspeccion->tricket == 1)
                       <td style="text-align:center;"><img src="img/check.jpg" width="20px" height="18px" alt=""></td>
                     @else
                       <td style="text-align:center;"><img src="img/error.jpg" width="20px" height="18px" alt=""></td>                  
                     @endif
                     <td>Alfombras</td>
-                    @if($inspeccion->total_llantas == 1)
+                    @if($inspeccion->alfombras == 1)
                       <td style="text-align:center;"><img src="img/check.jpg" width="20px" height="18px" alt=""></td>
                     @else
                       <td style="text-align:center;"><img src="img/error.jpg" width="20px" height="18px" alt=""></td>                  
@@ -221,13 +221,13 @@
                   </tr>    
                   <tr>
                     <td>Herramientas</td>
-                    @if($inspeccion->total_llantas == 1)
+                    @if($inspeccion->herramienta == 1)
                       <td style="text-align:center;"><img src="img/check.jpg" width="20px" height="18px" alt=""></td>
                     @else
                       <td style="text-align:center;"><img src="img/error.jpg" width="20px" height="18px" alt=""></td>                  
                     @endif
                     <td>Pidevias</td>
-                    @if($inspeccion->total_llantas == 1)
+                    @if($inspeccion->pidevias == 1)
                       <td style="text-align:center;"><img src="img/check.jpg" width="20px" height="18px" alt=""></td>
                     @else
                       <td style="text-align:center;"><img src="img/error.jpg" width="20px" height="18px" alt=""></td>                  
@@ -235,13 +235,13 @@
                   </tr>
                   <tr>
                     <td>Placas</td>
-                    @if($inspeccion->total_llantas == 1)
+                    @if($inspeccion->placas == 1)
                       <td style="text-align:center;"><img src="img/check.jpg" width="20px" height="18px" alt=""></td>
                     @else
                       <td style="text-align:center;"><img src="img/error.jpg" width="20px" height="18px" alt=""></td>                  
                     @endif
-                    <td>Repdoructor de DVD</td>
-                    @if($inspeccion->total_llantas == 1)
+                    <td>Reproductor de DVD</td>
+                    @if($inspeccion->reproductor == 1)
                       <td style="text-align:center;"><img src="img/check.jpg" width="20px" height="18px" alt=""></td>
                     @else
                       <td style="text-align:center;"><img src="img/error.jpg" width="20px" height="18px" alt=""></td>                  
