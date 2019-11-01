@@ -75,7 +75,8 @@ class LineaController extends ApiController
                     'no_chasis' => $request->no_chasis,
                     'color' => $request->color,
                     'modelo' => $request->modelo,
-                    'linea_id' => $linea->id
+                    'linea_id' => $linea->id,
+                    'linea_transporte' => $request->linea_transporte
                 ]
             );
 

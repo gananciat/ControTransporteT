@@ -28,6 +28,7 @@ model.transporteController = {
     map: function (data) {
         var self = model.transporteController;
         var form = self.transporte;
+        console.log(data)
         form.id(data.id);
         form.linea_id(data.linea_id);
         form.placa(data.placa);
