@@ -113,7 +113,7 @@ class ReporteController extends Controller
         foreach ($tipo_multas as $value) 
         {
           $data['identificador'] = $value->nombre;
-          $data['multa'] = $value->nombre.' - No pagadas';
+          $data['multa'] = $value->nombre.' - Pagadas';
           array_push($ver_pagadas, $data);
 
           $buscar_multas = Multa::where('pagado',true)
